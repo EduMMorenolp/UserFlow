@@ -2,6 +2,10 @@
 
 UserFlow es una API diseñada para gestionar un CRUD de usuarios. Utiliza Node.js, Express, MySQL y Prisma, siguiendo el patrón MVC para su estructura.
 
+## Ultima actualizacion
+
+16-06-2024
+
 ## Tecnologías Usadas
 
 - Node.js
@@ -68,3 +72,13 @@ UserFlow/
 ## Licencia
 
 Este proyecto está licenciado bajo la Licencia. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+## Última Actualización
+
+Dia/Mes/Año : 16-06-2024
+
+### Historial de Actualizaciones
+
+- **16-06-2024**: Se definieron los endpoints y se agregaron las rutas iniciales.
+- **15-06-2024**: Se agregó la estructura básica del proyecto y las configuraciones iniciales.
+- **15-06-2024**: Inicio del proyecto UserFlow.
