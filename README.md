@@ -21,6 +21,7 @@ UserFlow es una API diseñada para gestionar un CRUD de usuarios.
 
 ## Estructura del Proyecto
 
+```
 UserFlow/
 ├── prisma/
 │ └── schema.prisma
@@ -41,6 +42,7 @@ UserFlow/
 ├── .gitignore
 ├── package.json
 └── README.md
+```
 
 ## Contribución
 
