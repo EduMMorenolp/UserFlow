@@ -1,6 +1,6 @@
 # UserFlow
 
-UserFlow es una API diseñada para gestionar un CRUD de usuarios.
+UserFlow es una API diseñada para gestionar un CRUD de usuarios, incorporando un sistema de autenticación basado en API keys. Los usuarios registrados pueden generar y utilizar una API key única para interactuar de manera segura con el backend.
 
 ## Tecnologías Usadas
 
