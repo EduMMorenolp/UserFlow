@@ -75,7 +75,7 @@ Este proyecto está licenciado bajo la Licencia. Consulta el archivo [LICENSE](L
 
 ## Última Actualización
 
-Dia/Mes/Año : 16-06-2024
+- **Dia/Mes/Año** : 16-06-2024
 
 ### Historial de Actualizaciones
 
