@@ -1,10 +1,6 @@
 # UserFlow
 
-UserFlow es una API diseñada para gestionar un CRUD de usuarios. Utiliza Node.js, Express, MySQL y Prisma, siguiendo el patrón MVC para su estructura.
-
-## Ultima actualizacion
-
-16-06-2024
+UserFlow es una API diseñada para gestionar un CRUD de usuarios.
 
 ## Tecnologías Usadas
 
@@ -22,19 +18,6 @@ UserFlow es una API diseñada para gestionar un CRUD de usuarios. Utiliza Node.j
 - Postman
 - Git & GitHub
 - MySQL Workbench
-
-## Endpoints
-
-### Usuarios
-- `GET /users` - Obtener todos los usuarios
-- `GET /users/:id` - Obtener un usuario por ID
-- `POST /users` - Crear un nuevo usuario
-- `PUT /users/:id` - Actualizar un usuario por ID
-- `DELETE /users/:id` - Eliminar un usuario por ID
-
-### Autenticación
-- `POST /auth/register` - Registro de usuario
-- `POST /auth/login` - Inicio de sesión de usuario
 
 ## Estructura del Proyecto
 
