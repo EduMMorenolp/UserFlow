@@ -34,7 +34,7 @@ UserFlow/
 │ ├── models/
 │ │ └── user.js
 │ ├── routes/
-│ │ └── userRoutes.js
+│ │ └── user.Routes.js
 │ ├── utils/
 │ └── index.js
 ├── .env.example
