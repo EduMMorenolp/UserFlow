@@ -1,17 +1,31 @@
 {
   "name": "userflow",
   "version": "1.0.0",
-  "description": "",
+  "description": "API para gestionar el CRUD de usuarios utilizando Node.js, Express, MySQL y Prisma",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:generate": "npx prisma generate",
+    "prisma:studio": "npx prisma studio"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "API",
+    "CRUD",
+    "users",
+    "Node.js",
+    "Express",
+    "MySQL",
+    "Prisma"
+  ],
+  "author": "EduardoMMoreno",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EduMMorenolp/UserFlow"
+  },
   "dependencies": {
     "@prisma/client": "^5.16.2",
     "bcrypt": "^5.1.1",
