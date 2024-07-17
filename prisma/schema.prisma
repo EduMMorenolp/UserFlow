@@ -11,8 +11,21 @@ model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
   password  String
-  name      String
-  lastnmae  String
+  name      String?
+  lastnmae  String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  clients   Client[] @relation("AdminClients")
+}
+
+model Client {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String?
+  lastnmae  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  adminId   Int
+  admin     User     @relation("AdminClients", fields: [adminId], references: [id])
 }

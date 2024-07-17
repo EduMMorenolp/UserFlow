@@ -4,13 +4,15 @@ UserFlow es una API diseñada para gestionar un CRUD de usuarios, incorporando u
 
 ## Tecnologías Usadas
 
-- Node.js
-- Express
-- MySQL
-- Prisma
-- Morgan
-- JSON Web Token (JWT)
-- Bcrypt
+- **Node.js**: Entorno de ejecución para JavaScript en el servidor.
+- **Express**: Framework web minimalista para Node.js.
+- **MySQL**: Sistema de gestión de bases de datos relacional.
+- **Prisma**: ORM para consultas de bases de datos en Node.js.
+- **Morgan**: Middleware para registrar solicitudes HTTP.
+- **JSON Web Token (JWT)**: Estándar para crear tokens de acceso.
+- **Bcrypt**: Biblioteca para hashing de contraseñas.
+- **dotenv**: Módulo para gestionar variables de entorno.
+- **ES6**: Versión de JavaScript con nuevas características.
 
 ## Herramientas
 
