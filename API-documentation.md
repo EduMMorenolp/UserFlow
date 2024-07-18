@@ -6,18 +6,19 @@ Esta documentación describe las rutas y métodos disponibles en la API de UserF
 
 ## Endpoints
 
-### Usuarios
+### Usuarios Autenticación
+
+- `POST /auth/register` - Registro de usuario
+- `POST /auth/login` - Inicio de sesión de usuario
+- `POST /api/users/regenerate-api-key` - Regenera la API Key del usuario autenticado
+
+### Clientes
 
 - `GET /users` - Obtener todos los usuarios
 - `GET /users/:id` - Obtener un usuario por ID
 - `POST /users` - Crear un nuevo usuario
 - `PUT /users/:id` - Actualizar un usuario por ID
 - `DELETE /users/:id` - Eliminar un usuario por ID
-
-### Autenticación
-
-- `POST /auth/register` - Registro de usuario
-- `POST /auth/login` - Inicio de sesión de usuario
 
 ## Autenticación
 
