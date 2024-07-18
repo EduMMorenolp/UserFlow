@@ -41,6 +41,8 @@ export const registerUser = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error al registrar usuario.' });
+  } finally {
+    await prisma.$disconnect();
   }
 };
 
@@ -68,6 +70,8 @@ export const loginUser = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error al iniciar sesión.' });
+  } finally {
+    await prisma.$disconnect();
   }
 };
 
@@ -86,5 +90,7 @@ export const regenerateApiKey = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error al actualizar API Key.' });
+  } finally {
+    await prisma.$disconnect();
   }
 };

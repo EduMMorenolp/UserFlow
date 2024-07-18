@@ -16,6 +16,8 @@ export const getClients = async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Error al obtener clientes.' });
+    } finally {
+        await prisma.$disconnect();
     }
 };
 
@@ -36,6 +38,8 @@ export const getClientById = async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Error al obtener cliente por ID.' });
+    } finally {
+        await prisma.$disconnect();
     }
 };
 
@@ -58,6 +62,8 @@ export const createClient = async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Error al crear cliente.' });
+    } finally {
+        await prisma.$disconnect();
     }
 };
 
@@ -80,6 +86,8 @@ export const updateClient = async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Error al actualizar cliente.' });
+    } finally {
+        await prisma.$disconnect();
     }
 };
 
@@ -96,5 +104,7 @@ export const deleteClient = async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Error al eliminar cliente.' });
+    } finally {
+        await prisma.$disconnect();
     }
 };
