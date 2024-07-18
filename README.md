@@ -29,6 +29,7 @@ Archivo : ```API-documentation.md```
 - **JSON Web Token (JWT)**: Estándar para crear tokens de acceso.
 - **Bcrypt**: Biblioteca para hashing de contraseñas.
 - **dotenv**: Módulo para gestionar variables de entorno.
+- **uuid**: Librería para generar identificadores únicos universales.
 - **ES6**: Versión de JavaScript con nuevas características.
 
 ## Herramientas
