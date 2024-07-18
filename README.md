@@ -17,7 +17,7 @@ UserFlow es una API diseñada para gestionar un CRUD de usuarios, incorporando u
 ## Herramientas
 
 - Visual Studio Code (VSCode)
-- Postman
+- Insomnia
 - Git & GitHub
 - MySQL Workbench
 
@@ -26,6 +26,7 @@ UserFlow es una API diseñada para gestionar un CRUD de usuarios, incorporando u
 ```
 UserFlow/
 ├── prisma/
+│ ├── migrations/
 │ └── schema.prisma
 ├── src/
 │ ├── config/
