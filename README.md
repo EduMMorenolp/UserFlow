@@ -50,12 +50,12 @@ UserFlow/
 │ ├── config/
 │ │ └── db.js
 │ ├── controllers/
+│ │ ├── clientController.js
 │ │ └── userController.js
 │ ├── middlewares/
 │ │ └── authMiddleware.js
-│ ├── models/
-│ │ └── user.js
 │ ├── routes/
+│ │ ├── client.Routes.js
 │ │ └── user.Routes.js
 │ ├── utils/
 │ └── index.js
