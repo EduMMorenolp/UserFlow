@@ -1,9 +1,17 @@
-import prisma from '../config/db.js';
+// clientController.js
+
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 // Obtener todos los clientes
 export const getClients = async (req, res) => {
     try {
-        const clients = await prisma.client.findMany();
+        const clients = await prisma.client.findMany({
+            where: {
+                adminId: req.user.id, // Filtrar clientes por ID del administrador autenticado
+            },
+        });
         res.status(200).json(clients);
     } catch (error) {
         console.error(error);
@@ -20,7 +28,7 @@ export const getClientById = async (req, res) => {
             where: { id: Number(id) },
         });
 
-        if (!client) {
+        if (!client || client.adminId !== req.user.id) {
             return res.status(404).json({ error: 'Cliente no encontrado.' });
         }
 
@@ -36,26 +44,13 @@ export const createClient = async (req, res) => {
     const { name, lastName, email, password } = req.body;
 
     try {
-        const adminId = req.user.id; // Obtener el ID del usuario administrador desde el token
-
-        const admin = await prisma.user.findUnique({
-            where: { id: adminId },
-            include: { clients: true },
-        });
-
-        if (!admin) {
-            return res.status(404).json({ error: 'Usuario administrador no encontrado.' });
-        }
-
         const newClient = await prisma.client.create({
             data: {
                 name,
                 lastName,
                 email,
                 password,
-                admin: {
-                    connect: { id: adminId },
-                },
+                adminId: req.user.id, // Asignar ID del administrador autenticado como adminId
             },
         });
 

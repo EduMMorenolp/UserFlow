@@ -1,12 +1,14 @@
+// userRoutes.js
+
 import express from 'express';
-import { registerUser, loginUser } from '../controllers/userController.js';
+import { registerUser, loginUser, regenerateApiKey } from '../controllers/userController.js';
+import { authMiddlewareToken } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
 
-// Ruta para el registro de usuarios
+// Rutas para usuarios
 router.post('/register', registerUser);
-
-// Ruta para el inicio de sesión
 router.post('/login', loginUser);
+router.post('/regenerate-api-key', authMiddlewareToken, regenerateApiKey); // Ruta protegida
 
 export default router;

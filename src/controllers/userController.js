@@ -1,3 +1,5 @@
+// userController.js
+
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
@@ -66,5 +68,23 @@ export const loginUser = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error al iniciar sesión.' });
+  }
+};
+
+export const regenerateApiKey = async (req, res) => {
+  const userId = req.user.id;
+
+  try {
+    const apiKey = generateApiKey();
+
+    const updatedUser = await prisma.user.update({
+      where: { id: userId },
+      data: { apiKey },
+    });
+
+    res.status(200).json({ message: 'API Key actualizada correctamente.', apiKey });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error al actualizar API Key.' });
   }
 };
