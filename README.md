@@ -2,6 +2,23 @@
 
 UserFlow es una API diseñada para gestionar un CRUD de usuarios, incorporando un sistema de autenticación basado en API keys. Los usuarios registrados pueden generar y utilizar una API key única para interactuar de manera segura con el backend.
 
+## Endpoints
+
+### Usuarios
+- `GET /users` - Obtener todos los usuarios
+- `GET /users/:id` - Obtener un usuario por ID
+- `POST /users` - Crear un nuevo usuario
+- `PUT /users/:id` - Actualizar un usuario por ID
+- `DELETE /users/:id` - Eliminar un usuario por ID
+
+### Autenticación
+- `POST /auth/register` - Registro de usuario
+- `POST /auth/login` - Inicio de sesión de usuario
+
+#### API-documentation
+
+Archivo : ```API-documentation.md```
+
 ## Tecnologías Usadas
 
 - **Node.js**: Entorno de ejecución para JavaScript en el servidor.
@@ -12,6 +29,7 @@ UserFlow es una API diseñada para gestionar un CRUD de usuarios, incorporando u
 - **JSON Web Token (JWT)**: Estándar para crear tokens de acceso.
 - **Bcrypt**: Biblioteca para hashing de contraseñas.
 - **dotenv**: Módulo para gestionar variables de entorno.
+- **uuid**: Librería para generar identificadores únicos universales.
 - **ES6**: Versión de JavaScript con nuevas características.
 
 ## Herramientas
@@ -32,17 +50,18 @@ UserFlow/
 │ ├── config/
 │ │ └── db.js
 │ ├── controllers/
+│ │ ├── clientController.js
 │ │ └── userController.js
 │ ├── middlewares/
 │ │ └── authMiddleware.js
-│ ├── models/
-│ │ └── user.js
 │ ├── routes/
+│ │ ├── client.Routes.js
 │ │ └── user.Routes.js
 │ ├── utils/
 │ └── index.js
 ├── .env.example
 ├── .gitignore
+├── API-documentation.md
 ├── package.json
 └── README.md
 ```
