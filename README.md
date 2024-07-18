@@ -1,21 +1,24 @@
 # UserFlow
 
-UserFlow es una API diseñada para gestionar un CRUD de usuarios, incorporando un sistema de autenticación basado en API keys. Los usuarios registrados pueden generar y utilizar una API key única para interactuar de manera segura con el backend.
+UserFlow es una API diseñada para gestionar un CRUD de clientes, incorporando un sistema de autenticación basado en API keys. Los usuarios registrados pueden generar y utilizar una API key única para interactuar de manera segura con el backend.
 
 ## Endpoints
 
-### Usuarios
+### Usuarios Autenticación
+
+- `POST /auth/register` - Registro de usuario
+- `POST /auth/login` - Inicio de sesión de usuario
+- `POST /api/users/regenerate-api-key` - Regenera la API Key del usuario autenticado
+
+### Clientes
+
 - `GET /users` - Obtener todos los usuarios
 - `GET /users/:id` - Obtener un usuario por ID
 - `POST /users` - Crear un nuevo usuario
 - `PUT /users/:id` - Actualizar un usuario por ID
 - `DELETE /users/:id` - Eliminar un usuario por ID
 
-### Autenticación
-- `POST /auth/register` - Registro de usuario
-- `POST /auth/login` - Inicio de sesión de usuario
-
-#### API-documentation
+## API-documentation
 
 Archivo : ```API-documentation.md```
 
