@@ -2,6 +2,23 @@
 
 UserFlow es una API diseñada para gestionar un CRUD de usuarios, incorporando un sistema de autenticación basado en API keys. Los usuarios registrados pueden generar y utilizar una API key única para interactuar de manera segura con el backend.
 
+## Endpoints
+
+### Usuarios
+- `GET /users` - Obtener todos los usuarios
+- `GET /users/:id` - Obtener un usuario por ID
+- `POST /users` - Crear un nuevo usuario
+- `PUT /users/:id` - Actualizar un usuario por ID
+- `DELETE /users/:id` - Eliminar un usuario por ID
+
+### Autenticación
+- `POST /auth/register` - Registro de usuario
+- `POST /auth/login` - Inicio de sesión de usuario
+
+#### API-documentation
+
+Archivo : ```API-documentation.md```
+
 ## Tecnologías Usadas
 
 - **Node.js**: Entorno de ejecución para JavaScript en el servidor.
@@ -43,6 +60,7 @@ UserFlow/
 │ └── index.js
 ├── .env.example
 ├── .gitignore
+├── API-documentation.md
 ├── package.json
 └── README.md
 ```
