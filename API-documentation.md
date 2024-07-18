@@ -1,11 +1,13 @@
-
 # UserFlow API Documentation
 
-Esta documentación detalla las rutas de la API de UserFlow, incluyendo los métodos HTTP, parámetros y ejemplos de respuestas.
+## Introducción
+
+Esta documentación describe las rutas y métodos disponibles en la API de UserFlow. La API requiere autenticación mediante API Key o JWT para acceder a ciertas funcionalidades.
 
 ## Endpoints
 
 ### Usuarios
+
 - `GET /users` - Obtener todos los usuarios
 - `GET /users/:id` - Obtener un usuario por ID
 - `POST /users` - Crear un nuevo usuario
@@ -13,152 +15,164 @@ Esta documentación detalla las rutas de la API de UserFlow, incluyendo los mét
 - `DELETE /users/:id` - Eliminar un usuario por ID
 
 ### Autenticación
+
 - `POST /auth/register` - Registro de usuario
 - `POST /auth/login` - Inicio de sesión de usuario
 
-## Usuarios
-
-### Obtener todos los usuarios
-
-- **URL:** `/users`
-- **Método:** `GET`
-- **Descripción:** Obtener una lista de todos los usuarios.
-- **Parámetros de URL:** Ninguno
-- **Respuesta Exitosa:**
-  - **Código:** 200
-  - **Cuerpo:**
-    ```json
-    [
-      {
-        "id": 1,
-        "email": "example1@example.com",
-        "createdAt": "2024-06-01T12:34:56.789Z",
-        "updatedAt": "2024-06-01T12:34:56.789Z"
-      },
-      {
-        "id": 2,
-        "email": "example2@example.com",
-        "createdAt": "2024-06-01T12:34:56.789Z",
-        "updatedAt": "2024-06-01T12:34:56.789Z"
-      }
-    ]
-    ```
-
-### Obtener un usuario por ID
-
-- **URL:** `/users/:id`
-- **Método:** `GET`
-- **Descripción:** Obtener los detalles de un usuario específico por su ID.
-- **Parámetros de URL:**
-  - `id` - ID del usuario
-- **Respuesta Exitosa:**
-  - **Código:** 200
-  - **Cuerpo:**
-    ```json
-    {
-      "id": 1,
-      "email": "example1@example.com",
-      "createdAt": "2024-06-01T12:34:56.789Z",
-      "updatedAt": "2024-06-01T12:34:56.789Z"
-    }
-    ```
-
-### Crear un nuevo usuario
-
-- **URL:** `/users`
-- **Método:** `POST`
-- **Descripción:** Crear un nuevo usuario.
-- **Cuerpo de la Solicitud:**
-  - `email` - Email del usuario (String)
-  - `password` - Contraseña del usuario (String)
-- **Respuesta Exitosa:**
-  - **Código:** 201
-  - **Cuerpo:**
-    ```json
-    {
-      "id": 3,
-      "email": "example3@example.com",
-      "createdAt": "2024-06-01T12:34:56.789Z",
-      "updatedAt": "2024-06-01T12:34:56.789Z"
-    }
-    ```
-
-### Actualizar un usuario por ID
-
-- **URL:** `/users/:id`
-- **Método:** `PUT`
-- **Descripción:** Actualizar los detalles de un usuario específico por su ID.
-- **Parámetros de URL:**
-  - `id` - ID del usuario
-- **Cuerpo de la Solicitud:**
-  - `email` - Nuevo email del usuario (String)
-  - `password` - Nueva contraseña del usuario (String)
-- **Respuesta Exitosa:**
-  - **Código:** 200
-  - **Cuerpo:**
-    ```json
-    {
-      "id": 1,
-      "email": "updated@example.com",
-      "createdAt": "2024-06-01T12:34:56.789Z",
-      "updatedAt": "2024-06-02T12:34:56.789Z"
-    }
-    ```
-
-### Eliminar un usuario por ID
-
-- **URL:** `/users/:id`
-- **Método:** `DELETE`
-- **Descripción:** Eliminar un usuario específico por su ID.
-- **Parámetros de URL:**
-  - `id` - ID del usuario
-- **Respuesta Exitosa:**
-  - **Código:** 204
-  - **Cuerpo:** Ninguno
-
 ## Autenticación
 
-### Registro de usuario
+### Registro de Usuario
 
-- **URL:** `/auth/register`
-- **Método:** `POST`
-- **Descripción:** Registrar un nuevo usuario.
-- **Cuerpo de la Solicitud:**
-  - `email` - Email del usuario (String)
-  - `password` - Contraseña del usuario (String)
-- **Respuesta Exitosa:**
-  - **Código:** 201
-  - **Cuerpo:**
-    ```json
-    {
-      "id": 3,
-      "email": "newuser@example.com",
-      "createdAt": "2024-06-01T12:34:56.789Z",
-      "updatedAt": "2024-06-01T12:34:56.789Z"
-    }
-    ```
+#### POST /api/users/register
 
-### Inicio de sesión de usuario
+Crea un nuevo usuario en la plataforma.
 
-- **URL:** `/auth/login`
-- **Método:** `POST`
-- **Descripción:** Iniciar sesión de un usuario.
-- **Cuerpo de la Solicitud:**
-  - `email` - Email del usuario (String)
-  - `password` - Contraseña del usuario (String)
-- **Respuesta Exitosa:**
-  - **Código:** 200
-  - **Cuerpo:**
-    ```json
-    {
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-    }
-    ```
+```javascript
+Body:
+{
+  "name": "Nombre del usuario",
+  "lastName": "Apellido del usuario",
+  "email": "correo@ejemplo.com",
+  "password": "contraseña"
+}
 
-## Respuestas de Error Comunes
+Respuesta exitosa (201):
+{
+  "message": "Usuario registrado exitosamente.",
+  "apiKey": "nueva_api_key_generada"
+}
+```
 
-- **400 Bad Request:** Solicitud malformada o parámetros inválidos.
-- **401 Unauthorized:** Autenticación fallida o falta de token.
-- **403 Forbidden:** Acceso denegado.
-- **404 Not Found:** Recurso no encontrado.
-- **500 Internal Server Error:** Error en el servidor.
+### Inicio de Sesión
+
+#### POST /api/users/login
+
+Inicia sesión con las credenciales proporcionadas y obtiene un token JWT.
+
+```javascript
+Body:
+{
+  "email": "correo@ejemplo.com",
+  "password": "contraseña"
+}
+
+Respuesta exitosa (200):
+{
+  "token": "token_jwt"
+}
+```
+
+### Regenerar API Key
+
+#### POST /api/users/regenerate-api-key
+
+Regenera la API Key del usuario autenticado. Requiere un token JWT en el encabezado Authorization.
+
+```javascript
+Respuesta exitosa (200):
+{
+  "message": "API Key actualizada correctamente.",
+  "apiKey": "nueva_api_key_generada"
+}
+```
+
+## Clientes
+
+### Obtener Todos los Clientes
+
+#### GET /api/clients
+
+Obtiene todos los clientes asociados al usuario autenticado.
+
+```javascript
+Respuesta exitosa (200):
+[
+  {
+    "id": 1,
+    "name": "Nombre del cliente",
+    "email": "correo@cliente.com",
+    "createdAt": "fecha_de_creación",
+    "updatedAt": "última_actualización"
+  },
+  ...
+]
+```
+
+### Obtener Cliente por ID
+
+#### GET /api/clients/:id
+
+Obtiene un cliente específico por su ID. Requiere un token JWT en el encabezado Authorization.
+
+```javascript
+Respuesta exitosa (200):
+{
+  "id": 1,
+  "name": "Nombre del cliente",
+  "email": "correo@cliente.com",
+  "createdAt": "fecha_de_creación",
+  "updatedAt": "última_actualización"
+}
+```
+
+### Crear Nuevo Cliente
+
+#### POST /api/clients
+
+Crea un nuevo cliente asociado al usuario autenticado. Requiere un token JWT en el encabezado Authorization.
+
+```javascript
+Body:
+{
+  "name": "Nombre del cliente",
+  "lastName": "Apellido del cliente",
+  "email": "correo@cliente.com",
+  "password": "contraseña"
+}
+
+Respuesta exitosa (201):
+{
+  "id": 1,
+  "name": "Nombre del cliente",
+  "email": "correo@cliente.com",
+  "createdAt": "fecha_de_creación",
+  "updatedAt": "última_actualización"
+}
+```
+
+### Actualizar Cliente por ID
+
+#### PUT /api/clients/:id
+
+Actualiza los detalles de un cliente específico por su ID. Requiere un token JWT en el encabezado Authorization.
+
+```javascript
+Body:
+{
+  "name": "Nuevo nombre del cliente",
+  "lastName": "Nuevo apellido del cliente",
+  "email": "nuevo_correo@cliente.com"
+}
+
+Respuesta exitosa (200):
+{
+  "id": 1,
+  "name": "Nuevo nombre del cliente",
+  "email": "nuevo_correo@cliente.com",
+  "createdAt": "fecha_de_creación",
+  "updatedAt": "última_actualización"
+}
+```
+
+### Eliminar Cliente por ID
+
+#### DELETE /api/clients/:id
+
+Elimina un cliente específico por su ID. Requiere un token JWT en el encabezado Authorization.
+
+```javascript
+Respuesta exitosa (200):
+{
+  "message": "Cliente eliminado correctamente."
+}
+```
