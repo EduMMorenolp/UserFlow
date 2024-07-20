@@ -4,6 +4,9 @@ UserFlow es una API diseñada para gestionar un CRUD de clientes, incorporando u
 
 ## Endpoints
 
+URL Local : ``` http://localhost:3000/ ```
+URL Nube : ``` No disponible ```
+
 ### Usuarios Autenticación
 
 - `POST /auth/register` - Registro de usuario
@@ -17,6 +20,10 @@ UserFlow es una API diseñada para gestionar un CRUD de clientes, incorporando u
 - `POST /users` - Crear un nuevo usuario
 - `PUT /users/:id` - Actualizar un usuario por ID
 - `DELETE /users/:id` - Eliminar un usuario por ID
+
+### Swagger Documentation
+
+- `GET /api-docs` - Documentacion con Swagger
 
 ## API-documentation
 
@@ -34,6 +41,7 @@ Archivo : ```API-documentation.md```
 - **dotenv**: Módulo para gestionar variables de entorno.
 - **uuid**: Librería para generar identificadores únicos universales.
 - **ES6**: Versión de JavaScript con nuevas características.
+- **Swagger**: Herramienta para generar documentación y pruebas de APIs RESTful.
 
 ## Herramientas
 
@@ -51,7 +59,9 @@ UserFlow/
 │ └── schema.prisma
 ├── src/
 │ ├── config/
-│ │ └── db.js
+│ │ ├── db.js
+│ │ ├── swagger.js
+│ │ └── swagger.json
 │ ├── controllers/
 │ │ ├── clientController.js
 │ │ └── userController.js
