@@ -1,10 +1,12 @@
 
 import prisma from '../config/db.js';
+import jwt from 'jsonwebtoken';
 
 export const authMiddleware = async (req, res, next) => {
     const apiKey = req.headers['authorization'];
 
     if (!apiKey) {
+        console.log(apiKey)
         return res.status(401).json({ error: 'API Key requerida.' });
     }
 
@@ -14,9 +16,12 @@ export const authMiddleware = async (req, res, next) => {
         });
 
         if (!user) {
+            console.log(user)
+            console.log(apiKey)
             return res.status(401).json({ error: 'API Key inválida.' });
         }
-
+        console.log(apiKey)
+        console.log(user)
         req.user = user;
         next();
     } catch (error) {
