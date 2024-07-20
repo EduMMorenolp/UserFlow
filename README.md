@@ -95,10 +95,11 @@ Este proyecto está licenciado bajo la Licencia. Consulta el archivo [LICENSE](L
 
 ## Última Actualización
 
-- **Dia/Mes/Año** : 16-06-2024
+- **Dia/Mes/Año** : 20-06-2024
 
 ### Historial de Actualizaciones
 
+- **20-06-2024**: Implementacion de Swagger, fix errores generales.
 - **16-06-2024**: Se definieron los endpoints y se agregaron las rutas iniciales.
 - **15-06-2024**: Se agregó la estructura básica del proyecto y las configuraciones iniciales.
 - **15-06-2024**: Inicio del proyecto UserFlow.
