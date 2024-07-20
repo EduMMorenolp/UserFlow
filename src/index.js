@@ -17,8 +17,8 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 // Rutas principales
-app.use('api/users', userRoutes);
-app.use('api/clients', clientRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/clients', clientRoutes);
 
 app.listen(PORT, () => {
     console.log('\n==================================================')

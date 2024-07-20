@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/users/register": {
+    "/api/users/register": {
       "post": {
         "summary": "Registrar un nuevo usuario",
         "tags": ["Users"],
@@ -53,7 +53,7 @@
         }
       }
     },
-    "/users/login": {
+    "/api/users/login": {
       "post": {
         "summary": "Iniciar sesión de usuario",
         "tags": ["Users"],
@@ -75,8 +75,17 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Inicio de sesión exitoso"
+                    },
                     "token": {
-                      "type": "string"
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    },
+                    "apiKey": {
+                      "type": "string",
+                      "example": "1234567890abcdef"
                     }
                   }
                 }
@@ -95,7 +104,7 @@
         }
       }
     },
-    "/users/regenerate-api-key": {
+    "/api/users/regenerate-api-key": {
       "post": {
         "summary": "Regenerar API Key del usuario",
         "tags": ["Users"],
@@ -129,7 +138,7 @@
         }
       }
     },
-    "/clients": {
+    "/api/clients": {
       "get": {
         "summary": "Obtener todos los clientes",
         "tags": ["Clients"],
@@ -184,7 +193,7 @@
         }
       }
     },
-    "/clients/{id}": {
+    "/api/clients/{id}": {
       "get": {
         "summary": "Obtener un cliente por ID",
         "tags": ["Clients"],
@@ -381,9 +390,9 @@
     },
     "securitySchemes": {
       "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
       }
     }
   }
