@@ -1,11 +1,11 @@
 import express from 'express';
 import { getClients, getClientById, createClient, updateClient, deleteClient } from '../controllers/clientController.js';
-import { authMiddleware } from '../middlewares/authMiddleware.js';
+import { authApiKeyMiddleware } from '../middlewares/authApiKeyMiddleware.js';
 
 const router = express.Router();
 
 // Middleware de autenticación
-router.use(authMiddleware);
+router.use(authApiKeyMiddleware);
 
 // Rutas para clientes
 router.get('/', getClients);

@@ -2,7 +2,7 @@
 
 import express from 'express';
 import { registerUser, loginUser, regenerateApiKey } from '../controllers/userController.js';
-import { authMiddlewareToken } from '../middlewares/authMiddleware.js';
+import { authMiddlewareToken } from '../middlewares/authTokenMiddleware.js';
 
 const router = express.Router();
 
