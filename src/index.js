@@ -23,5 +23,6 @@ app.use('/api/clients', clientRoutes);
 app.listen(PORT, () => {
     console.log('\n==================================================')
     console.log(`🚀 Servidor corriendo en: http://localhost:${PORT}`)
+    console.log(`📃 Swagger Docs: http://localhost:${PORT}/api-docs`)
     console.log('==================================================\n')
 })
