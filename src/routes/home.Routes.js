@@ -36,6 +36,24 @@ router.get('/', (req, res) => {
         color: #666; 
         margin-bottom: 0; 
         }
+        a {
+        display: inline-block;
+        padding: 12px 24px;
+        color: #ffffff;
+        background-color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s, transform 0.3s;
+        }
+        a:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+        }
+        a:focus {
+        outline: 2px solid #0056b3;
+        outline-offset: 4px;
+        }
         @keyframes blink {
         0% { opacity: 0; }
         50% { opacity: 1; } 
@@ -54,6 +72,7 @@ router.get('/', (req, res) => {
         <h1>Server is running</h1>
         <p>UserFlow API is up and running!</p>
         <p class="blinking-text">...</p>
+        <p><a href="http://localhost:3000/api-docs" target="_blank">📃 Swagger Docs</a></p>
     </div>
     </body>
     </html>
