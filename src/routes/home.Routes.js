@@ -72,7 +72,6 @@ router.get('/', (req, res) => {
         <h1>Server is running</h1>
         <p>UserFlow API is up and running!</p>
         <p class="blinking-text">...</p>
-        <p><a href="http://localhost:3000/api-docs" target="_blank">📃 Swagger Docs</a></p>
     </div>
     </body>
     </html>
