@@ -1,13 +1,8 @@
 // src/controllers/userController.js
-
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import { v4 as uuidv4 } from 'uuid';
-import prisma from '../config/db.js';
-
-const generateApiKey = () => {
-  return uuidv4(); // Genera un UUID único como API key
-};
+import * as userModel from '../models/userModel.js';
+import { generateApiKey } from '../utils/generateApiKey.js';
+import { generateJWT } from '../utils/generateJWT.js';
+import { hashPassword, comparePassword } from '../utils/hashPassword.js';
 
 export const registerUser = async (req, res) => {
   const { name, lastName, email, password } = req.body;
@@ -17,32 +12,26 @@ export const registerUser = async (req, res) => {
   }
 
   try {
-    let existingUser = await prisma.user.findUnique({
-      where: { email },
-    });
+    const existingUser = await userModel.findUserByEmail(email);
     if (existingUser) {
       return res.status(400).json({ error: 'El usuario ya está registrado.' });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await hashPassword(password);
     const apiKey = generateApiKey();
 
-    const newUser = await prisma.user.create({
-      data: {
-        name,
-        lastName,
-        email,
-        password: hashedPassword,
-        apiKey,
-      },
+    const newUser = await userModel.createUser({
+      name,
+      lastName,
+      email,
+      password: hashedPassword,
+      apiKey,
     });
 
     res.status(201).json({ message: 'Usuario registrado exitosamente.', apiKey });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error al registrar usuario.' });
-  } finally {
-    await prisma.$disconnect();
   }
 };
 
@@ -50,32 +39,26 @@ export const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await prisma.user.findUnique({
-      where: { email },
-    });
+    const user = await userModel.findUserByEmail(email);
     if (!user) {
       return res.status(404).json({ error: 'Usuario no encontrado.' });
     }
 
-    const isPasswordValid = await bcrypt.compare(password, user.password);
+    const isPasswordValid = await comparePassword(password, user.password);
     if (!isPasswordValid) {
       return res.status(401).json({ error: 'Credenciales inválidas.' });
     }
 
-    const token = jwt.sign({ userId: user.id, email: user.email }, process.env.JWT_SECRET, {
-      expiresIn: '1h',
-    });
-    
+    const token = generateJWT(user.id, user.email);
+
     res.status(200).json({
       message: 'Inicio de sesión exitoso',
-      token: token,
-      apiKey: user.apiKey
+      token,
+      apiKey: user.apiKey,
     });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error al iniciar sesión.' });
-  } finally {
-    await prisma.$disconnect();
   }
 };
 
@@ -85,16 +68,11 @@ export const regenerateApiKey = async (req, res) => {
   try {
     const apiKey = generateApiKey();
 
-    const updatedUser = await prisma.user.update({
-      where: { id: userId },
-      data: { apiKey },
-    });
+    await userModel.updateUserApiKey(userId, apiKey);
 
     res.status(200).json({ message: 'API Key actualizada correctamente.', apiKey });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error al actualizar API Key.' });
-  } finally {
-    await prisma.$disconnect();
   }
 };

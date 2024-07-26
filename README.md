@@ -4,8 +4,8 @@ UserFlow es una API diseñada para gestionar un CRUD de clientes, incorporando u
 
 ## Endpoints
 
-URL Local : ``` http://localhost:3000/ ```
-URL Nube : ``` No disponible ```
+URL Local : `http://localhost:3000/`
+URL Nube : `No disponible`
 
 ### Usuarios Autenticación
 
@@ -27,7 +27,7 @@ URL Nube : ``` No disponible ```
 
 ## API-documentation
 
-Archivo : ```API-documentation.md```
+Archivo : `API-documentation.md`
 
 ## Tecnologías Usadas
 
@@ -53,30 +53,59 @@ Archivo : ```API-documentation.md```
 ## Estructura del Proyecto
 
 ```
+
 UserFlow/
 ├── prisma/
-│ ├── migrations/
-│ └── schema.prisma
+│   ├── migrations/
+│   └── schema.prisma
 ├── src/
-│ ├── config/
-│ │ ├── db.js
-│ │ ├── swagger.js
-│ │ └── swagger.json
-│ ├── controllers/
-│ │ ├── clientController.js
-│ │ └── userController.js
-│ ├── middlewares/
-│ │ └── authMiddleware.js
-│ ├── routes/
-│ │ ├── client.Routes.js
-│ │ └── user.Routes.js
-│ ├── utils/
-│ └── index.js
+│   ├── config/
+│   │   └── db.js
+│   ├── controllers/
+│   │   ├── clientController.js
+│   │   └── userController.js
+│   ├── middlewares/
+│   │   └── authMiddleware.js
+│   ├── models/
+│   │   ├── clientModel.js
+│   │   └── userModel.js
+│   ├── routes/
+│   │   ├── client.Routes.js
+│   │   └── user.Routes.js
+│   ├── utils/
+│   │   ├── generateApiKey.js
+│   │   ├── generateJWT.js
+│   │   └── hashPassword.js
+│   └── index.js
+├── swagger/
+│   ├── paths/
+│   │   ├── users/
+│   │   │   ├── register.js
+│   │   │   ├── login.js
+│   │   │   └── regenerateApiKey.js
+│   │   ├── clients/
+│   │   │   ├── getAllClients.js
+│   │   │   ├── createClient.js
+│   │   │   └── clientById.js
+│   ├── components/
+│   │   ├── schemas/
+│   │   │   ├── UserRegistration.js
+│   │   │   ├── UserLogin.js
+│   │   │   ├── Client.js
+│   │   │   ├── ClientInput.js
+│   │   │   └── ClientUpdateInput.js
+│   │   └── securitySchemes/
+│   │       └── bearerAuth.js
+│   ├── info.js
+│   ├── servers.js
+│   ├── main.js
+│   └── swaggerSpec.js
 ├── .env.example
 ├── .gitignore
 ├── API-documentation.md
 ├── package.json
 └── README.md
+
 ```
 
 ## Contribución

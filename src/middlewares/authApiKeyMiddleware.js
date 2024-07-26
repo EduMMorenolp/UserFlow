@@ -1,5 +1,9 @@
 // src/middlewares/authApiKeyMiddleware.js
 
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
 export const authApiKeyMiddleware = async (req, res, next) => {
     const apiKey = req.headers['authorization'];
 
