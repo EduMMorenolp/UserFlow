@@ -40,6 +40,7 @@ router.get('/', (req, res) => {
         }
         a {
         display: inline-block;
+        margin-top: 20px;
         padding: 12px 24px;
         color: #ffffff;
         background-color: #007bff;
@@ -74,6 +75,8 @@ router.get('/', (req, res) => {
         <h1>Server is running</h1>
         <p>UserFlow API is up and running!</p>
         <p class="blinking-text">...</p>
+        <a href="http://localhost:3000/api-docs">Swagger Docs Local</a>
+        <a href="https://userflow-7y2o.onrender.com/api-docs">Swagger Docs Render</a>
     </div>
     </body>
     </html>
