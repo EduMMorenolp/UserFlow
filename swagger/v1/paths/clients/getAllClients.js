@@ -2,7 +2,6 @@ const getAllClients = {
     get: {
         summary: "Obtener todos los clientes",
         tags: ["Clients"],
-        security: [{ bearerAuth: [] }],
         responses: {
             200: {
                 description: "Lista de clientes obtenida exitosamente",

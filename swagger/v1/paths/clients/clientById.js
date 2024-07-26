@@ -2,14 +2,13 @@ const clientById = {
     get: {
         summary: "Obtener un cliente por ID",
         tags: ["Clients"],
-        security: [{ bearerAuth: [] }],
         parameters: [
             {
                 in: "path",
                 name: "id",
                 required: true,
                 schema: {
-                    type: "String"
+                    type: "string"
                 },
                 description: "ID del cliente"
             }
@@ -41,14 +40,13 @@ const clientById = {
     put: {
         summary: "Actualizar un cliente por ID",
         tags: ["Clients"],
-        security: [{ bearerAuth: [] }],
         parameters: [
             {
                 in: "path",
                 name: "id",
                 required: true,
                 schema: {
-                    type: "String"
+                    type: "string"
                 },
                 description: "ID del cliente"
             }
@@ -87,14 +85,13 @@ const clientById = {
     delete: {
         summary: "Eliminar un cliente por ID",
         tags: ["Clients"],
-        security: [{ bearerAuth: [] }],
         parameters: [
             {
                 in: "path",
                 name: "id",
                 required: true,
                 schema: {
-                    type: "String"
+                    type: "string"
                 },
                 description: "ID del cliente"
             }

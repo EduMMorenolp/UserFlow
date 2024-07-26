@@ -3,7 +3,6 @@ const createClient = {
         summary: "Crear un nuevo cliente",
         tags: ["Clients"],
         security: [
-            { bearerAuth: [] },
             { apiKeyAuth: [] }
         ],
         requestBody: {
