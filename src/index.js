@@ -4,7 +4,7 @@ import express from 'express'
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 // Swagger
-import setupSwagger from './config/swagger.js';
+import setupSwagger from '../swagger/main.js';
 // Routes 
 import userRoutes from './routes/user.Routes.js';
 import clientRoutes from './routes/client.Routes.js';
@@ -14,7 +14,7 @@ dotenv.config();
 const app = express()
 const PORT = process.env.PORT || 3000;
 
-// Swagger Documentation
+// Configura Swagger UI
 setupSwagger(app);
 
 app.use(morgan('dev'));
