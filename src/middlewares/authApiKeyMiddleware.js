@@ -8,7 +8,6 @@ export const authApiKeyMiddleware = async (req, res, next) => {
     const apiKey = req.headers['authorization'];
 
     if (!apiKey) {
-        console.log(apiKey)
         return res.status(401).json({ error: 'API Key requerida.' });
     }
 
@@ -22,8 +21,6 @@ export const authApiKeyMiddleware = async (req, res, next) => {
             console.log(apiKey)
             return res.status(401).json({ error: 'API Key inválida.' });
         }
-        console.log(apiKey)
-        console.log(user)
         req.user = user;
         next();
     } catch (error) {
