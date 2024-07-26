@@ -2,32 +2,17 @@
 
 UserFlow es una API diseñada para gestionar un CRUD de clientes, incorporando un sistema de autenticación basado en API keys. Los usuarios registrados pueden generar y utilizar una API key única para interactuar de manera segura con el backend.
 
-## Endpoints
+## Despliegue
 
-URL Local : `http://localhost:3000/`
-URL Nube : `https://userflow-7y2o.onrender.com`
+El proyecto UserFlow ha sido desplegado en [Render](https://render.com). Puedes acceder a la aplicación en el siguiente enlace:
 
-### Usuarios Autenticación
+- **URL de la aplicación**: [https://userflow-7y2o.onrender.com](https://userflow-7y2o.onrender.com)
 
-- `POST /auth/register` - Registro de usuario
-- `POST /auth/login` - Inicio de sesión de usuario
-- `POST /api/users/regenerate-api-key` - Regenera la API Key del usuario autenticado
+### Documentación de la API
 
-### Clientes
+La documentación de la API generada con Swagger está disponible en el siguiente enlace:
 
-- `GET /users` - Obtener todos los usuarios
-- `GET /users/:id` - Obtener un usuario por ID
-- `POST /users` - Crear un nuevo usuario
-- `PUT /users/:id` - Actualizar un usuario por ID
-- `DELETE /users/:id` - Eliminar un usuario por ID
-
-### Swagger Documentation
-
-- `GET /api-docs` - Documentacion con Swagger
-
-## API-documentation
-
-Archivo : `API-documentation.md`
+- **Swagger Docs**: [https://userflow-7y2o.onrender.com/api-docs](https://userflow-7y2o.onrender.com/api-docs)
 
 ## Tecnologías Usadas
 
@@ -125,11 +110,15 @@ Este proyecto está licenciado bajo la Licencia. Consulta el archivo [LICENSE](L
 
 ## Última Actualización
 
-- **Dia/Mes/Año** : 20-06-2024
+- **Dia/Mes/Año** : 26-07-2024
 
 ### Historial de Actualizaciones
 
-- **20-06-2024**: Implementacion de Swagger, fix errores generales.
-- **16-06-2024**: Se definieron los endpoints y se agregaron las rutas iniciales.
-- **15-06-2024**: Se agregó la estructura básica del proyecto y las configuraciones iniciales.
-- **15-06-2024**: Inicio del proyecto UserFlow.
+- **26-07-2024**: Implementación de CORS para habilitar Cross-Origin Resource Sharing.
+- **26-07-2024**: Despliegue del proyecto en Render.
+- **25-07-2024**: Refactorizacion de Codigo.
+- **23-07-2024**: Implementación de la ruta / para verificar el estado del servidor con enlaces a la documentación de Swagger.
+- **20-07-2024**: Implementacion de Swagger
+- **16-07-2024**: Se definieron los endpoints y se agregaron las rutas iniciales.
+- **15-07-2024**: Se agregó la estructura básica del proyecto y las configuraciones iniciales.
+- **15-07-2024**: Inicio del proyecto UserFlow.
