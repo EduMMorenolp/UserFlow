@@ -40,6 +40,7 @@ Archivo : `API-documentation.md`
 - **Bcrypt**: Biblioteca para hashing de contraseñas.
 - **dotenv**: Módulo para gestionar variables de entorno.
 - **uuid**: Librería para generar identificadores únicos universales.
+- **CORS**: Middleware para habilitar Cross-Origin Resource Sharing en la aplicación.
 - **ES6**: Versión de JavaScript con nuevas características.
 - **Swagger**: Herramienta para generar documentación y pruebas de APIs RESTful.
 
