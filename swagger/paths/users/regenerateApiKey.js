@@ -29,7 +29,12 @@ const regenerateApiKey = {
             500: {
                 description: "Error del servidor"
             }
-        }
+        },
+        security: [
+            {
+                bearerAuth: []
+            }
+        ]
     }
 };
 

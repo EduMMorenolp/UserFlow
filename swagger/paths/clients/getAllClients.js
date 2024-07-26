@@ -20,7 +20,12 @@ const getAllClients = {
             500: {
                 description: "Error del servidor"
             }
-        }
+        },
+        security: [
+            {
+                apiKeyAuth: []
+            }
+        ]
     }
 };
 

@@ -27,7 +27,12 @@ const createClient = {
             500: {
                 description: "Error del servidor"
             }
-        }
+        },
+        security: [
+            {
+                apiKeyAuth: []
+            }
+        ]
     }
 };
 

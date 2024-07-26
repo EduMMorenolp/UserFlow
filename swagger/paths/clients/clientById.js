@@ -31,7 +31,12 @@ const clientById = {
             500: {
                 description: "Error del servidor"
             }
-        }
+        },
+        security: [
+            {
+                apiKeyAuth: []
+            }
+        ]
     },
     put: {
         summary: "Actualizar un cliente por ID",
@@ -72,7 +77,12 @@ const clientById = {
             500: {
                 description: "Error del servidor"
             }
-        }
+        },
+        security: [
+            {
+                apiKeyAuth: []
+            }
+        ]
     },
     delete: {
         summary: "Eliminar un cliente por ID",
@@ -96,7 +106,12 @@ const clientById = {
             500: {
                 description: "Error del servidor"
             }
-        }
+        },
+        security: [
+            {
+                apiKeyAuth: []
+            }
+        ]
     }
 };
 
