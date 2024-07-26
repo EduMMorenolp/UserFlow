@@ -34,11 +34,22 @@ export const getClientById = async (id, adminId) => {
 
 export const createClient = async (clientData, adminId) => {
     try {
+        // Verificar si el correo electrónico ya está en uso
+        const existingClient = await prisma.client.findUnique({
+            where: {
+                email: clientData.email
+            }
+        });
+        if (existingClient) {
+            throw new Error('El correo electrónico ya está en uso.');
+        }
+        // Crear el nuevo cliente
         return await prisma.client.create({
             data: { ...clientData, adminId },
         });
     } catch (error) {
-        throw new Error('Error al crear cliente.');
+        console.error(error); 
+        throw new Error(error.message);
     } finally {
         await prisma.$disconnect();
     }

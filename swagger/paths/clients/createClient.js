@@ -2,7 +2,10 @@ const createClient = {
     post: {
         summary: "Crear un nuevo cliente",
         tags: ["Clients"],
-        security: [{ bearerAuth: [] }],
+        security: [
+            { bearerAuth: [] },
+            { apiKeyAuth: [] }
+        ],
         requestBody: {
             required: true,
             content: {
@@ -27,12 +30,7 @@ const createClient = {
             500: {
                 description: "Error del servidor"
             }
-        },
-        security: [
-            {
-                apiKeyAuth: []
-            }
-        ]
+        }
     }
 };
 

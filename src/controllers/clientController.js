@@ -1,10 +1,23 @@
 // src/controllers/clientController.js
 import * as clientModel from '../models/clientModel.js';
 
+const formatClientResponse = (client) => {
+    return {
+        id: client.id,
+        email: client.email,
+        name: client.name,
+        lastName: client.lastName,
+        createdAt: client.createdAt,
+        updatedAt: client.updatedAt,
+        adminId: client.adminId,
+    };
+};
+
 export const getClients = async (req, res) => {
     try {
         const clients = await clientModel.getClients(req.user.id);
-        res.status(200).json(clients);
+        const formattedClients = clients.map(formatClientResponse);
+        res.status(200).json(formattedClients);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: error.message });
@@ -18,7 +31,8 @@ export const getClientById = async (req, res) => {
         if (!client) {
             return res.status(404).json({ error: 'Cliente no encontrado.' });
         }
-        res.status(200).json(client);
+        const formattedClients = formatClientResponse(client);
+        res.status(200).json(formattedClients);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: error.message });
@@ -28,7 +42,8 @@ export const getClientById = async (req, res) => {
 export const createClient = async (req, res) => {
     try {
         const newClient = await clientModel.createClient(req.body, req.user.id);
-        res.status(201).json(newClient);
+        const formattedClients = formatClientResponse(newClient);
+        res.status(200).json(formattedClients);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: error.message });
@@ -39,7 +54,8 @@ export const updateClient = async (req, res) => {
     const { id } = req.params;
     try {
         const updatedClient = await clientModel.updateClient(id, req.body);
-        res.status(200).json(updatedClient);
+        const formattedClients = formatClientResponse(updatedClient);
+        res.status(200).json(formattedClients);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: error.message });
