@@ -76,3 +76,15 @@ export const regenerateApiKey = async (req, res) => {
     res.status(500).json({ error: 'Error al actualizar API Key.' });
   }
 };
+
+export const deleteUser = async (req, res) => {
+  const userId = req.user.id;
+
+  try {
+    await userModel.deleteUser(userId);
+    res.status(200).json({ message: 'Usuario eliminado correctamente.' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error al eliminar usuario.' });
+  }
+};
