@@ -14,6 +14,7 @@ import Client from './components/schemas/Client.js';
 import ClientInput from './components/schemas/ClientInput.js';
 import ClientUpdateInput from './components/schemas/ClientUpdateInput.js';
 import bearerAuth from './components/securitySchemes/bearerAuth.js';
+import apiKeyAuth from './components/securitySchemes/apiKeyAuth.js';
 
 const swaggerSpec = {
     openapi: '3.0.0',
@@ -38,7 +39,8 @@ const swaggerSpec = {
             ClientUpdateInput
         },
         securitySchemes: {
-            bearerAuth
+            bearerAuth,
+            apiKeyAuth
         }
     }
 };

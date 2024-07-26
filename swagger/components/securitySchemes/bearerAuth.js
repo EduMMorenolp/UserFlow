@@ -1,7 +1,8 @@
 const bearerAuth = {
     type: "http",
     scheme: "bearer",
-    bearerFormat: "JWT"
+    bearerFormat: "JWT",
+    description: 'JWT Token Authentication'
 };
 
 export default bearerAuth;
