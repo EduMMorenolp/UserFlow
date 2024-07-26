@@ -55,23 +55,29 @@ Archivo : ```API-documentation.md```
 ```
 UserFlow/
 ├── prisma/
-│ ├── migrations/
-│ └── schema.prisma
+│   ├── migrations/
+│   └── schema.prisma
 ├── src/
-│ ├── config/
-│ │ ├── db.js
-│ │ ├── swagger.js
-│ │ └── swagger.json
-│ ├── controllers/
-│ │ ├── clientController.js
-│ │ └── userController.js
-│ ├── middlewares/
-│ │ └── authMiddleware.js
-│ ├── routes/
-│ │ ├── client.Routes.js
-│ │ └── user.Routes.js
-│ ├── utils/
-│ └── index.js
+│   ├── config/
+│   │   ├── db.js
+│   │   ├── swagger.js
+│   │   └── swagger.json
+│   ├── controllers/
+│   │   ├── clientController.js
+│   │   └── userController.js
+│   ├── middlewares/
+│   │   └── authMiddleware.js
+│   ├── models/
+│   │   ├── clientModel.js
+│   │   └── userModel.js
+│   ├── routes/
+│   │   ├── client.Routes.js
+│   │   └── user.Routes.js
+│   ├── utils/
+│   │   ├── generateApiKey.js
+│   │   ├── generateJWT.js
+│   │   └── hashPassword.js
+│   └── index.js
 ├── .env.example
 ├── .gitignore
 ├── API-documentation.md
