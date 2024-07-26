@@ -1,5 +1,5 @@
 // src/controllers/userController.js
-import * as userModel from '../models/userModel.js';
+import * as userModel from '../models/userModel.prisma.js';
 import { generateApiKey } from '../utils/generateApiKey.js';
 import { generateJWT } from '../utils/generateJWT.js';
 import { hashPassword, comparePassword } from '../utils/hashPassword.js';
