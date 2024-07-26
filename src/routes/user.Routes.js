@@ -1,4 +1,4 @@
-// userRoutes.js
+// src/routes/user.Routes.js
 
 import express from 'express';
 import { registerUser, loginUser, regenerateApiKey } from '../controllers/userController.js';

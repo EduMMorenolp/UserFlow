@@ -1,3 +1,5 @@
+// src/routes/client.Routes.js
+
 import express from 'express';
 import { getClients, getClientById, createClient, updateClient, deleteClient } from '../controllers/clientController.js';
 import { authApiKeyMiddleware } from '../middlewares/authApiKeyMiddleware.js';

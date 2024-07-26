@@ -1,4 +1,4 @@
-// clientController.js
+// src/controllers/clientController.js
 
 import { PrismaClient } from '@prisma/client';
 

@@ -1,4 +1,4 @@
-// userController.js
+// src/controllers/userController.js
 
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';

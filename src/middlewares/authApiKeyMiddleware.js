@@ -1,3 +1,5 @@
+// src/middlewares/authApiKeyMiddleware.js
+
 export const authApiKeyMiddleware = async (req, res, next) => {
     const apiKey = req.headers['authorization'];
 

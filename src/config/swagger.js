@@ -1,3 +1,5 @@
+// src/config/swagger.js
+
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from '../config/swagger.json' assert { type: "json" };
 
