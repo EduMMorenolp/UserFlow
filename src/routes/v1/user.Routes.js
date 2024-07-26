@@ -1,8 +1,8 @@
 // src/routes/user.Routes.js
 
 import express from 'express';
-import { registerUser, loginUser, regenerateApiKey } from '../controllers/userController.js';
-import { authMiddlewareToken } from '../middlewares/authTokenMiddleware.js';
+import { registerUser, loginUser, regenerateApiKey } from '../../controllers/v1/userController.js';
+import { authMiddlewareToken } from '../../middlewares/authTokenMiddleware.js';
 
 const router = express.Router();
 

@@ -3,8 +3,8 @@
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpec from './swaggerSpec.js';
 
-const setupSwagger = (app) => {
+const setupSwaggerV1 = (app) => {
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 };
 
-export default setupSwagger;
+export default setupSwaggerV1;

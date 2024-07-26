@@ -4,26 +4,27 @@ import express from 'express'
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 // Swagger
-import setupSwagger from '../swagger/main.js';
+import setupSwaggerV1 from '../swagger/v1/main.js';
 // Routes 
-import userRoutes from './routes/user.Routes.js';
-import clientRoutes from './routes/client.Routes.js';
-import homeRoutes from './routes/home.Routes.js';
+import userRoutes from './routes/v1/user.Routes.js';
+import clientRoutes from './routes/v1/client.Routes.js';
+import homeRoutes from './routes/v1/home.Routes.js';
 
 dotenv.config();
 const app = express()
 const PORT = process.env.PORT || 3000;
 
-// Configura Swagger UI
-setupSwagger(app);
-
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Rutas principales
+// Configura Swagger UI
+setupSwaggerV1(app);
+
 app.use(`/`, homeRoutes)
-app.use('/api/users', userRoutes);
-app.use('/userflow/clients', clientRoutes);
+// Rutas principales v1
+app.use('/api/v1/users', userRoutes);
+app.use('/userflow/v1/clients', clientRoutes);
 
 app.listen(PORT, () => {
     console.log('\n==================================================')

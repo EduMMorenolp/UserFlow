@@ -1,8 +1,8 @@
 // src/routes/client.Routes.js
 
 import express from 'express';
-import { getClients, getClientById, createClient, updateClient, deleteClient } from '../controllers/clientController.js';
-import { authApiKeyMiddleware } from '../middlewares/authApiKeyMiddleware.js';
+import { getClients, getClientById, createClient, updateClient, deleteClient } from '../../controllers/v1/clientController.js';
+import { authApiKeyMiddleware } from '../../middlewares/authApiKeyMiddleware.js';
 
 const router = express.Router();
 
