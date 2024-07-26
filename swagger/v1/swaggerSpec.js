@@ -15,6 +15,7 @@ import ClientInput from './components/schemas/ClientInput.js';
 import ClientUpdateInput from './components/schemas/ClientUpdateInput.js';
 import bearerAuth from './components/securitySchemes/bearerAuth.js';
 import apiKeyAuth from './components/securitySchemes/apiKeyAuth.js';
+import deleteUser from './paths/users/deleteUser.js';
 
 const swaggerSpec = {
     openapi: '3.0.0',
@@ -24,6 +25,7 @@ const swaggerSpec = {
         '/api/v1/users/register': register,
         '/api/v1/users/login': login,
         '/api/v1/users/regenerate-api-key': regenerateApiKey,
+        '/api/v1/users/deleteUser': deleteUser,
         '/userflow/v1/clients': {
             ...getAllClients,
             ...createClient

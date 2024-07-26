@@ -9,7 +9,7 @@ const clientById = {
                 name: "id",
                 required: true,
                 schema: {
-                    type: "integer"
+                    type: "String"
                 },
                 description: "ID del cliente"
             }
@@ -48,7 +48,7 @@ const clientById = {
                 name: "id",
                 required: true,
                 schema: {
-                    type: "integer"
+                    type: "String"
                 },
                 description: "ID del cliente"
             }
@@ -94,7 +94,7 @@ const clientById = {
                 name: "id",
                 required: true,
                 schema: {
-                    type: "integer"
+                    type: "String"
                 },
                 description: "ID del cliente"
             }

@@ -30,7 +30,7 @@ export const registerUser = async (req, res) => {
 
     res.status(201).json({ message: 'Usuario registrado exitosamente.', apiKey });
   } catch (error) {
-    console.error(error);
+    console.error('Error al registrar usuario:', error);
     res.status(500).json({ error: 'Error al registrar usuario.' });
   }
 };
@@ -57,7 +57,7 @@ export const loginUser = async (req, res) => {
       apiKey: user.apiKey,
     });
   } catch (error) {
-    console.error(error);
+    console.error('Error al iniciar sesión:', error);
     res.status(500).json({ error: 'Error al iniciar sesión.' });
   }
 };
@@ -72,7 +72,7 @@ export const regenerateApiKey = async (req, res) => {
 
     res.status(200).json({ message: 'API Key actualizada correctamente.', apiKey });
   } catch (error) {
-    console.error(error);
+    console.error('Error al actualizar API Key:', error);
     res.status(500).json({ error: 'Error al actualizar API Key.' });
   }
 };
@@ -84,7 +84,7 @@ export const deleteUser = async (req, res) => {
     await userModel.deleteUser(userId);
     res.status(200).json({ message: 'Usuario eliminado correctamente.' });
   } catch (error) {
-    console.error(error);
+    console.error('Error al eliminar usuario:', error);
     res.status(500).json({ error: 'Error al eliminar usuario.' });
   }
 };

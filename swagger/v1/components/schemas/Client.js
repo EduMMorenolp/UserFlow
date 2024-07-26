@@ -4,7 +4,7 @@ const Client = {
     type: 'object',
     properties: {
         id: {
-            type: 'integer'
+            type: 'String'
         },
         name: {
             type: 'string'
@@ -17,7 +17,7 @@ const Client = {
             format: 'email'
         },
         adminId: {
-            type: 'integer'
+            type: 'String'
         }
     }
 };
