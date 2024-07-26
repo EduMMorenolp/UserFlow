@@ -61,15 +61,15 @@ UserFlow/
 ├── src/
 │   ├── config/
 │   │   └── db.js
-│   ├── controllers/
+│   ├── controllers/v1
 │   │   ├── clientController.js
 │   │   └── userController.js
 │   ├── middlewares/
 │   │   └── authMiddleware.js
-│   ├── models/
+│   ├── models/v1
 │   │   ├── clientModel.js
 │   │   └── userModel.js
-│   ├── routes/
+│   ├── routes/v1
 │   │   ├── client.Routes.js
 │   │   └── user.Routes.js
 │   ├── utils/
@@ -77,7 +77,7 @@ UserFlow/
 │   │   ├── generateJWT.js
 │   │   └── hashPassword.js
 │   └── index.js
-├── swagger/
+├── swagger/v1
 │   ├── paths/
 │   │   ├── users/
 │   │   │   ├── register.js
