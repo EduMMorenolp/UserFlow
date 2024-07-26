@@ -24,11 +24,11 @@ const swaggerSpec = {
         '/api/users/register': register,
         '/api/users/login': login,
         '/api/users/regenerate-api-key': regenerateApiKey,
-        '/api/clients': {
+        '/userflow/clients': {
             ...getAllClients,
             ...createClient
         },
-        '/api/clients/{id}': clientById
+        '/userflow/clients/{id}': clientById
     },
     components: {
         schemas: {

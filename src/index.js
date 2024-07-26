@@ -23,7 +23,7 @@ app.use(express.json());
 // Rutas principales
 app.use(`/`, homeRoutes)
 app.use('/api/users', userRoutes);
-app.use('/api/clients', clientRoutes);
+app.use('/userflow/clients', clientRoutes);
 
 app.listen(PORT, () => {
     console.log('\n==================================================')
