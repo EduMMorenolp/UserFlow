@@ -1,6 +1,32 @@
 // src/models/userModel.js
 import prisma from '../../config/db.js';
 
+export const findUserById = async (id) => {
+    try {
+        return await prisma.user.findUnique({
+            where: { id },
+        });
+    } catch (error) {
+        console.error('Error al buscar usuario por ID:', error);
+        throw new Error('Error al buscar usuario por ID.');
+    } finally {
+        await prisma.$disconnect();
+    }
+};
+
+export const findUserByApiKey = async (apiKey) => {
+    try {
+        return await prisma.user.findUnique({
+            where: { apiKey },
+        });
+    } catch (error) {
+        console.error('Error al buscar usuario por API Key:', error);
+        throw new Error('Error al buscar usuario por API Key.');
+    } finally {
+        await prisma.$disconnect();
+    }
+};
+
 export const findUserByEmail = async (email) => {
     try {
         return await prisma.user.findUnique({

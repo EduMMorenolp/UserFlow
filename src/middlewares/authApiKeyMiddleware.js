@@ -1,8 +1,6 @@
 // src/middlewares/authApiKeyMiddleware.js
 
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import * as userModel from '../models/v1/userModel.prisma.js';
 
 export const authApiKeyMiddleware = async (req, res, next) => {
     const apiKey = req.headers['authorization'];
@@ -10,12 +8,8 @@ export const authApiKeyMiddleware = async (req, res, next) => {
     if (!apiKey) {
         return res.status(401).json({ error: 'API Key requerida.' });
     }
-
     try {
-        const user = await prisma.user.findUnique({
-            where: { apiKey },
-        });
-
+        const user = await userModel.findUserByApiKey(apiKey);
         if (!user) {
             console.log(user)
             console.log(apiKey)

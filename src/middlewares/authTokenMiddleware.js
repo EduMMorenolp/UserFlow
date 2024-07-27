@@ -1,30 +1,22 @@
 // src/middlewares/authTokenMiddleware.js
-
-
-import prisma from '../config/db.js';
-import jwt from 'jsonwebtoken';
+import * as userModel from '../models/v1/userModel.prisma.js';
+import { verifyJWT } from '../utils/generateJWT.js'
 
 export const authMiddlewareToken = async (req, res, next) => {
-    const token = req.headers.authorization;
-
+    const token = req.headers['authorization']?.split(' ')[1];
     if (!token) {
-        return res.status(401).json({ error: 'Token JWT requerido.' });
+        return res.status(401).json({ error: 'No se proporcionó token.' });
     }
-
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const user = await prisma.user.findUnique({
-            where: { id: decoded.userId },
-        });
-
+        const decoded = verifyJWT(token);
+        const user = await userModel.findUserById(decoded.userId);
         if (!user) {
             return res.status(401).json({ error: 'Token JWT inválido - Usuario no encontrado.' });
         }
-
         req.user = user; // Asigna el usuario encontrado al objeto de solicitud req
         next();
     } catch (error) {
-        console.error(error);
+        console.error('Error al verificar el token:', error);
         return res.status(401).json({ error: 'Token JWT inválido.' });
     }
 };
