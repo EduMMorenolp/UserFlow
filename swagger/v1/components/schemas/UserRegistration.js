@@ -1,10 +1,7 @@
 const UserRegistration = {
     type: "object",
-    required: ["id", "name", "lastName", "email", "password"],
+    required: ["name", "lastName", "email", "password"],
     properties: {
-        id: {
-            type: "String"
-        },
         name: {
             type: "string"
         },
