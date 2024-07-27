@@ -19,8 +19,8 @@ export const getClients = async (req, res) => {
         const formattedClients = clients.map(formatClientResponse);
         res.status(200).json(formattedClients);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: error.message });
+        console.error('Error al obtener clientes:', error);
+        res.status(500).json({ error: 'Error al obtener clientes.' });
     }
 };
 
@@ -31,22 +31,22 @@ export const getClientById = async (req, res) => {
         if (!client) {
             return res.status(404).json({ error: 'Cliente no encontrado.' });
         }
-        const formattedClients = formatClientResponse(client);
-        res.status(200).json(formattedClients);
+        const formattedClient = formatClientResponse(client);
+        res.status(200).json(formattedClient);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: error.message });
+        console.error('Error al obtener cliente por ID:', error);
+        res.status(500).json({ error: 'Error al obtener cliente por ID.' });
     }
 };
 
 export const createClient = async (req, res) => {
     try {
         const newClient = await clientModel.createClient(req.body, req.user.id);
-        const formattedClients = formatClientResponse(newClient);
-        res.status(200).json(formattedClients);
+        const formattedClient = formatClientResponse(newClient);
+        res.status(201).json(formattedClient);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: error.message });
+        console.error('Error al crear cliente:', error);
+        res.status(500).json({ error: 'Error al crear cliente.' });
     }
 };
 
@@ -54,11 +54,11 @@ export const updateClient = async (req, res) => {
     const { id } = req.params;
     try {
         const updatedClient = await clientModel.updateClient(id, req.body);
-        const formattedClients = formatClientResponse(updatedClient);
-        res.status(200).json(formattedClients);
+        const formattedClient = formatClientResponse(updatedClient);
+        res.status(200).json(formattedClient);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: error.message });
+        onsole.error('Error al actualizar cliente:', error);
+        res.status(500).json({ error: 'Error al actualizar cliente.' });
     }
 };
 
@@ -68,7 +68,7 @@ export const deleteClient = async (req, res) => {
         await clientModel.deleteClient(id);
         res.status(200).json({ message: 'Cliente eliminado correctamente.' });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: error.message });
+        console.error('Error al eliminar cliente:', error);
+        res.status(500).json({ error: 'Error al eliminar cliente.' });
     }
 };

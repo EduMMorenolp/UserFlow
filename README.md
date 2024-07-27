@@ -51,28 +51,22 @@ UserFlow/
 │   │   ├── clientController.js
 │   │   └── userController.js
 │   ├── middlewares/
-│   │   └── authMiddleware.js
+│   │   ├── authApiKeyMiddleware.js
+│   │   └── authTokenMiddleware.js
 │   ├── models/v1
 │   │   ├── clientModel.js
 │   │   └── userModel.js
 │   ├── routes/v1
 │   │   ├── client.Routes.js
+│   │   ├── home.Routes.js
 │   │   └── user.Routes.js
 │   ├── utils/
+│   │   ├── corsOptions.js
 │   │   ├── generateApiKey.js
 │   │   ├── generateJWT.js
 │   │   └── hashPassword.js
 │   └── index.js
 ├── swagger/v1
-│   ├── paths/
-│   │   ├── users/
-│   │   │   ├── register.js
-│   │   │   ├── login.js
-│   │   │   └── regenerateApiKey.js
-│   │   ├── clients/
-│   │   │   ├── getAllClients.js
-│   │   │   ├── createClient.js
-│   │   │   └── clientById.js
 │   ├── components/
 │   │   ├── schemas/
 │   │   │   ├── UserRegistration.js
@@ -81,14 +75,24 @@ UserFlow/
 │   │   │   ├── ClientInput.js
 │   │   │   └── ClientUpdateInput.js
 │   │   └── securitySchemes/
+│   │       ├── apiKeyAuth.js
 │   │       └── bearerAuth.js
+│   ├── paths/
+│   │   ├── clients/
+│   │   │   ├── getAllClients.js
+│   │   │   ├── createClient.js
+│   │   │   └── clientById.js
+│   │   └── users/
+│   │       ├── deleteUser.js
+│   │       ├── register.js
+│   │       ├── login.js
+│   │       └── regenerateApiKey.js
 │   ├── info.js
 │   ├── servers.js
 │   ├── main.js
 │   └── swaggerSpec.js
 ├── .env.example
 ├── .gitignore
-├── API-documentation.md
 ├── package.json
 └── README.md
 

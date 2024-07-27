@@ -1,14 +1,14 @@
 generator client {
-  provider      = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "mysql"
-  url = env("DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
   email     String   @unique
   password  String
   name      String?
@@ -16,17 +16,19 @@ model User {
   apiKey    String?  @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  deleteAt  DateTime?
   clients   Client[] @relation("AdminClients")
 }
 
 model Client {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
   email     String   @unique
   password  String
   name      String?
   lastName  String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  adminId   Int
+  deleteAt  DateTime?
+  adminId   String
   admin     User     @relation("AdminClients", fields: [adminId], references: [id])
 }

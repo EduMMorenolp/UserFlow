@@ -7,9 +7,10 @@ const prisma = new PrismaClient();
 export const getClients = async (adminId) => {
     try {
         return await prisma.client.findMany({
-            where: { adminId },
+            where: { adminId, deleteAt: null },
         });
     } catch (error) {
+        console.error('Error al obtener clientes:', error);
         throw new Error('Error al obtener clientes.');
     } finally {
         await prisma.$disconnect();
@@ -19,7 +20,7 @@ export const getClients = async (adminId) => {
 export const getClientById = async (id, adminId) => {
     try {
         const client = await prisma.client.findUnique({
-            where: { id: Number(id) },
+            where: { id, deleteAt: null },
         });
         if (client && client.adminId === adminId) {
             return client;
@@ -48,7 +49,7 @@ export const createClient = async (clientData, adminId) => {
             data: { ...clientData, adminId },
         });
     } catch (error) {
-        console.error(error); 
+        console.error(error);
         throw new Error(error.message);
     } finally {
         await prisma.$disconnect();
@@ -58,7 +59,7 @@ export const createClient = async (clientData, adminId) => {
 export const updateClient = async (id, clientData) => {
     try {
         return await prisma.client.update({
-            where: { id: Number(id) },
+            where: { id, deleteAt: null },
             data: clientData,
         });
     } catch (error) {
@@ -70,8 +71,9 @@ export const updateClient = async (id, clientData) => {
 
 export const deleteClient = async (id) => {
     try {
-        await prisma.client.delete({
-            where: { id: Number(id) },
+        await prisma.client.update({
+            where: { id },
+            data: { deleteAt: new Date() }
         });
     } catch (error) {
         throw new Error('Error al eliminar cliente.');
