@@ -24,6 +24,10 @@ const login = {
                                     type: "string",
                                     example: "Inicio de sesión exitoso"
                                 },
+                                id: {
+                                    type: "string",
+                                    example: "5f9f1b9b9c1d2e3f4a5b6c7d"
+                                },
                                 token: {
                                     type: "string",
                                     example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."

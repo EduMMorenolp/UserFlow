@@ -1,6 +1,6 @@
 const createClient = {
     post: {
-        summary: "Crear un nuevo cliente",
+        summary: "Registro de nuevo cliente",
         tags: ["Clients"],
         security: [
             { apiKeyAuth: [] }
@@ -17,7 +17,7 @@ const createClient = {
         },
         responses: {
             201: {
-                description: "Cliente creado exitosamente",
+                description: "Cliente registrado exitosamente",
                 content: {
                     "application/json": {
                         schema: {
