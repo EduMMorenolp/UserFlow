@@ -12,9 +12,9 @@ router.use(authApiKeyMiddleware);
 // Rutas para clientes
 router.get('/', getClients);
 router.get('/:id', getClientById);
-router.post('/', createClient);
+router.post('/register', createClient);
+router.post('/login', loginClient);
 router.put('/:id', updateClient);
 router.delete('/:id', deleteClient);
-router.post('/login', loginClient);
 
 export default router;

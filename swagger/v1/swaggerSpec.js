@@ -29,9 +29,9 @@ const swaggerSpec = {
         '/api/v1/users/regenerate-api-key': regenerateApiKey,
         '/api/v1/users/deleteUser': deleteUser,
         '/userflow/v1/clients': {
-            ...getAllClients,
-            ...createClient
+            ...getAllClients
         },
+        '/userflow/v1/clients/register': createClient,
         '/userflow/v1/clients/login': loginClient,
         '/userflow/v1/clients/{id}': clientById
     },
