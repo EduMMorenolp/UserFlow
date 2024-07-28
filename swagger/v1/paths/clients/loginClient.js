@@ -1,6 +1,6 @@
-const createClient = {
+const loginClient = {
     post: {
-        summary: "Registro de nuevo cliente",
+        summary: "Login de cliente",
         tags: ["Clients"],
         security: [
             { apiKeyAuth: [] }
@@ -17,11 +17,20 @@ const createClient = {
         },
         responses: {
             201: {
-                description: "Cliente registrado exitosamente",
+                description: "Inicio de Cliente exitoso",
                 content: {
                     "application/json": {
                         schema: {
-                            $ref: "#/components/schemas/Client"
+                            type: "object",
+                            properties: {
+                                message: {
+                                    type: "string",
+                                    example: "Inicio de sesión exitoso"
+                                },
+                                client: {
+                                    $ref: "#/components/schemas/Client"
+                                }
+                            }
                         }
                     }
                 }
@@ -33,4 +42,4 @@ const createClient = {
     }
 };
 
-export default createClient;
+export default loginClient;
