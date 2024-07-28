@@ -2,9 +2,9 @@
 
 import info from './info.js';
 import servers from './servers.js';
-import register from './paths/users/register.js';
-import login from './paths/users/login.js';
-import regenerateApiKey from './paths/users/regenerateApiKey.js';
+import register from './paths/users/registerUser.js';
+import login from './paths/users/loginUser.js';
+import regenerateApiKey from './paths/users/regenerateApiKeyUser.js';
 import getAllClients from './paths/clients/getAllClients.js';
 import createClient from './paths/clients/createClient.js';
 import clientById from './paths/clients/clientById.js';
