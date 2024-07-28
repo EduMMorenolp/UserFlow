@@ -81,3 +81,19 @@ export const deleteClient = async (id) => {
         await prisma.$disconnect();
     }
 };
+
+export const loginClient = async (email, password) => {
+    try {
+        const client = await prisma.client.findUnique({
+            where: { email },
+        });
+        if (client && client.password === password) {
+            return client;
+        }
+        return null;
+    } catch (error) {
+        throw new Error('Error al iniciar sesión.');
+    } finally {
+        await prisma.$disconnect();
+    }
+};

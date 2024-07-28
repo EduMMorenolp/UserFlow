@@ -10,7 +10,7 @@ const createClient = {
             content: {
                 "application/json": {
                     schema: {
-                        $ref: "#/components/schemas/ClientLogin"
+                        $ref: "#/components/schemas/ClientInput"
                     }
                 }
             }

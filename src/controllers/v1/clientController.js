@@ -72,3 +72,18 @@ export const deleteClient = async (req, res) => {
         res.status(500).json({ error: 'Error al eliminar cliente.' });
     }
 };
+
+export const loginClient = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const client = await clientModel.loginClient(email, password);
+        if (!client) {
+            return res.status(401).json({ error: 'Credenciales inválidas.' });
+        }
+        const formattedClient = formatClientResponse(client);
+        res.status(200).json(formattedClient);
+    } catch (error) {
+        console.error('Error al iniciar sesión:', error);
+        res.status(500).json({ error: 'Error al iniciar sesión.' });
+    }
+};
