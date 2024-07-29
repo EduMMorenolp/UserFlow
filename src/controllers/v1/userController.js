@@ -1,6 +1,6 @@
 // src/controllers/userController.js
 import {
-  createUser, deleteUser, findUserByEmail, updateUserApiKey,
+  createUser, deletedUser, findUserByEmail, updateUserApiKey,
 } from '../../models/v1/userModel.prisma.js';
 import { generateApiKey } from '../../utils/generateApiKey.js';
 import { generateJWT } from '../../utils/generateJWT.js';
@@ -84,7 +84,7 @@ export const deleteUser = async (req, res) => {
   const userId = req.user.id;
 
   try {
-    await deleteUser(userId);
+    await deletedUser(userId);
     res.status(200).json({ message: 'Usuario eliminado correctamente.' });
   } catch (error) {
     console.error('Error al eliminar usuario:', error);

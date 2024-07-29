@@ -1,5 +1,5 @@
 // src/controllers/clientController.js
-import { createClient, deleteClient, getClientById, getClients, loginClient, updateClient } from '../../models/v1/clientModel.prisma.js';
+import * as clientModel from '../../models/v1/clientModel.prisma.js';
 
 const formatClientResponse = (client) => {
     return {

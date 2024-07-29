@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 // Swagger
 import setupSwaggerV1 from '../swagger/v1/main.js';
 // Cors
-import setupCors from './config/corsOptions.js';
+import setupCors from './database/corsOptions.js';
 // Routes 
 import userRoutes from './routes/v1/user.Routes.js';
 import clientRoutes from './routes/v1/client.Routes.js';
