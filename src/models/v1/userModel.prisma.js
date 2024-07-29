@@ -1,5 +1,5 @@
 // src/models/userModel.js
-import prisma from '../../config/db.js';
+import { prisma } from '../../database/prismaClient.js';
 
 export const findUserById = async (id) => {
     try {
@@ -67,7 +67,7 @@ export const updateUserApiKey = async (userId, apiKey) => {
     }
 };
 
-export const deleteUser = async (id) => {
+export const deletedUser = async (id) => {
     try {
         return await prisma.user.update({
             where: { id },
