@@ -62,6 +62,9 @@ UserFlow/
 │   │   ├── client.Routes.js
 │   │   ├── home.Routes.js
 │   │   └── user.Routes.js
+│   ├── schemas/v1
+│   │   ├── clientSchema.js
+│   │   └── userSchema.js
 │   ├── services/v1
 │   │   ├── clientService.js
 │   │   └── userService.js
