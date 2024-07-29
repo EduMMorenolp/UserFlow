@@ -1,8 +1,6 @@
 // src/models/clientModel.js
 
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { prisma } from '../../config/prismaClient.js';
 
 export const getClients = async (adminId) => {
     try {

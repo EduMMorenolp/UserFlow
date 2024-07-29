@@ -1,5 +1,5 @@
 // src/models/userModel.js
-import prisma from '../../config/db.js';
+import { prisma } from '../../config/prismaClient.js';
 
 export const findUserById = async (id) => {
     try {

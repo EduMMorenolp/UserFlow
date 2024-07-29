@@ -1,5 +1,7 @@
 // src/controllers/userController.js
-import * as userModel from '../../models/v1/userModel.prisma.js';
+import {
+  createUser, deleteUser, findUserByEmail, updateUserApiKey,
+} from '../../models/v1/userModel.prisma.js';
 import { generateApiKey } from '../../utils/generateApiKey.js';
 import { generateJWT } from '../../utils/generateJWT.js';
 import { hashPassword, comparePassword } from '../../utils/hashPassword.js';
@@ -12,7 +14,7 @@ export const registerUser = async (req, res) => {
   }
 
   try {
-    const existingUser = await userModel.findUserByEmail(email);
+    const existingUser = await findUserByEmail(email);
     if (existingUser) {
       return res.status(400).json({ error: 'El usuario ya está registrado.' });
     }
@@ -20,7 +22,7 @@ export const registerUser = async (req, res) => {
     const hashedPassword = await hashPassword(password);
     const apiKey = generateApiKey();
 
-    const newUser = await userModel.createUser({
+    const newUser = await createUser({
       name,
       lastName,
       email,
@@ -39,7 +41,7 @@ export const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await userModel.findUserByEmail(email);
+    const user = await findUserByEmail(email);
     if (!user) {
       return res.status(404).json({ error: 'Usuario no encontrado.' });
     }
@@ -69,7 +71,7 @@ export const regenerateApiKey = async (req, res) => {
   try {
     const apiKey = generateApiKey();
 
-    await userModel.updateUserApiKey(userId, apiKey);
+    await updateUserApiKey(userId, apiKey);
 
     res.status(200).json({ message: 'API Key actualizada correctamente.', apiKey });
   } catch (error) {
@@ -82,7 +84,7 @@ export const deleteUser = async (req, res) => {
   const userId = req.user.id;
 
   try {
-    await userModel.deleteUser(userId);
+    await deleteUser(userId);
     res.status(200).json({ message: 'Usuario eliminado correctamente.' });
   } catch (error) {
     console.error('Error al eliminar usuario:', error);

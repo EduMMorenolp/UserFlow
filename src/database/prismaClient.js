@@ -1,7 +1,8 @@
 // src/config/db.js
 
 import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient();
+
+export const prisma = new PrismaClient();
 
 // Función para verificar la conexión
 export const checkConnection = async () => {
@@ -18,5 +19,3 @@ export const checkConnection = async () => {
 
 // Ejecutar la función de verificación
 checkConnection();
-
-export default prisma;
