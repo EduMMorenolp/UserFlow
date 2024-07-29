@@ -7,7 +7,7 @@ import {
     deleteClientService,
     loginClientService
 } from '../../services/v1/clientService.js';
-import { createClientSchema, updateClientSchema, loginClientSchema } from '../../schemas/clientSchema.js';
+import { createClientSchema, updateClientSchema, loginClientSchema } from '../../schemas/v1/clientSchema.js';
 
 export const getClients = async (req, res) => {
     try {

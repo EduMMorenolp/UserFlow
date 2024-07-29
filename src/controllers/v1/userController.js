@@ -5,7 +5,7 @@ import {
   regenerateApiKeyService,
   deleteUserService,
 } from '../../services/v1/userService.js';
-import { registerUserSchema, loginUserSchema } from '../../schemas/userSchema.js';
+import { registerUserSchema, loginUserSchema } from '../../schemas/v1/userSchema.js';
 
 export const registerUser = async (req, res) => {
   try {
