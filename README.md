@@ -25,6 +25,7 @@ La documentación de la API generada con Swagger está disponible en el siguient
 - **Bcrypt**: Biblioteca para hashing de contraseñas.
 - **dotenv**: Módulo para gestionar variables de entorno.
 - **uuid**: Librería para generar identificadores únicos universales.
+- **Zod** : Biblioteca para la validación. Garantiza que los datos de entrada cumplan con un formato específico antes de procesarlos.
 - **CORS**: Middleware para habilitar Cross-Origin Resource Sharing en la aplicación.
 - **ES6**: Versión de JavaScript con nuevas características.
 - **Swagger**: Herramienta para generar documentación y pruebas de APIs RESTful.

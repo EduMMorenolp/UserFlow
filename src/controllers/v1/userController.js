@@ -5,9 +5,11 @@ import {
   regenerateApiKeyService,
   deleteUserService,
 } from '../../services/v1/userService.js';
+import { registerUserSchema, loginUserSchema } from '../../schemas/userSchema.js';
 
 export const registerUser = async (req, res) => {
   try {
+    registerUserSchema.parse(req.body);
     const response = await registerUserService(req.body);
     res.status(201).json(response);
   } catch (error) {
@@ -18,6 +20,7 @@ export const registerUser = async (req, res) => {
 
 export const loginUser = async (req, res) => {
   try {
+    loginUserSchema.parse(req.body);
     const { email, password } = req.body;
     const response = await loginUserService(email, password);
     res.status(200).json(response);

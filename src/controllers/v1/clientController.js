@@ -7,6 +7,7 @@ import {
     deleteClientService,
     loginClientService
 } from '../../services/v1/clientService.js';
+import { createClientSchema, updateClientSchema, loginClientSchema } from '../../schemas/clientSchema.js';
 
 export const getClients = async (req, res) => {
     try {
@@ -34,6 +35,7 @@ export const getClientById = async (req, res) => {
 
 export const createClient = async (req, res) => {
     try {
+        createClientSchema.parse(req.body);
         const newClient = await createClientService(req.body, req.user.id);
         res.status(201).json(newClient);
     } catch (error) {
@@ -45,6 +47,7 @@ export const createClient = async (req, res) => {
 export const updateClient = async (req, res) => {
     const { id } = req.params;
     try {
+        updateClientSchema.parse(req.body);
         const updatedClient = await updateClientService(id, req.body);
         res.status(200).json(updatedClient);
     } catch (error) {
@@ -66,6 +69,7 @@ export const deleteClient = async (req, res) => {
 
 export const loginClient = async (req, res) => {
     try {
+        loginClientSchema.parse(req.body);
         const { email, password } = req.body;
         const client = await loginClientService(email, password);
         if (!client) {
