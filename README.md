@@ -14,6 +14,8 @@ La documentación de la API generada con Swagger está disponible en el siguient
 
 - **Swagger Docs**: [https://userflow-7y2o.onrender.com/api-docs](https://userflow-7y2o.onrender.com/api-docs)
 
+![UserFlow](assets/UserFlow.jpg)
+
 ## Tecnologías Usadas
 
 - **Node.js**: Entorno de ejecución para JavaScript en el servidor.
