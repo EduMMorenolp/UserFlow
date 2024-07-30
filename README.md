@@ -25,6 +25,7 @@ La documentación de la API generada con Swagger está disponible en el siguient
 - **Bcrypt**: Biblioteca para hashing de contraseñas.
 - **dotenv**: Módulo para gestionar variables de entorno.
 - **uuid**: Librería para generar identificadores únicos universales.
+- **Zod** : Biblioteca para la validación. Garantiza que los datos de entrada cumplan con un formato específico antes de procesarlos.
 - **CORS**: Middleware para habilitar Cross-Origin Resource Sharing en la aplicación.
 - **ES6**: Versión de JavaScript con nuevas características.
 - **Swagger**: Herramienta para generar documentación y pruebas de APIs RESTful.
@@ -61,6 +62,9 @@ UserFlow/
 │   │   ├── client.Routes.js
 │   │   ├── home.Routes.js
 │   │   └── user.Routes.js
+│   ├── schemas/v1
+│   │   ├── clientSchema.js
+│   │   └── userSchema.js
 │   ├── services/v1
 │   │   ├── clientService.js
 │   │   └── userService.js
@@ -117,16 +121,17 @@ Este proyecto está licenciado bajo la Licencia. Consulta el archivo [LICENSE](L
 
 ## Última Actualización
 
-- **Dia/Mes/Año** : 28-07-2024
+- **Dia/Mes/Año** : 29-07-2024
 
 ### Historial de Actualizaciones
 
-- **28-07-2024**: Actualizar los controladores para que usen los servicios
+- **29-07-2024**: Implementación de Zod.
+- **28-07-2024**: Actualización de los controladores para que usen los servicios.
 - **26-07-2024**: Implementación de CORS para habilitar Cross-Origin Resource Sharing.
 - **26-07-2024**: Despliegue del proyecto en Render.
-- **25-07-2024**: Refactorizacion de Codigo.
+- **25-07-2024**: Refactorización de código.
 - **23-07-2024**: Implementación de la ruta / para verificar el estado del servidor con enlaces a la documentación de Swagger.
-- **20-07-2024**: Implementacion de Swagger
-- **16-07-2024**: Se definieron los endpoints y se agregaron las rutas iniciales.
-- **15-07-2024**: Se agregó la estructura básica del proyecto y las configuraciones iniciales.
+- **20-07-2024**: Implementación de Swagger.
+- **16-07-2024**: Definición de los endpoints y adición de las rutas iniciales.
+- **15-07-2024**: Adición de la estructura básica del proyecto y configuraciones iniciales.
 - **15-07-2024**: Inicio del proyecto UserFlow.
