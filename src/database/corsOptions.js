@@ -10,6 +10,7 @@ const corsOptions = {
 
 const setupCors = (app) => {
     app.use(cors(corsOptions));
+    app.options('*', cors(corsOptions));
 };
 
 export default setupCors;

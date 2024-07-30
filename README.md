@@ -45,23 +45,26 @@ UserFlow/
 │   ├── migrations/
 │   └── schema.prisma
 ├── src/
-│   ├── config/
-│   │   └── db.js
 │   ├── controllers/v1
 │   │   ├── clientController.js
 │   │   └── userController.js
+│   ├── database/
+│   │   ├── corsOptions.js
+│   │   └── prismaClient.js
 │   ├── middlewares/
 │   │   ├── authApiKeyMiddleware.js
 │   │   └── authTokenMiddleware.js
 │   ├── models/v1
-│   │   ├── clientModel.js
-│   │   └── userModel.js
+│   │   ├── clientModel.prisma.js
+│   │   └── userModel.prisma.js
 │   ├── routes/v1
 │   │   ├── client.Routes.js
 │   │   ├── home.Routes.js
 │   │   └── user.Routes.js
+│   ├── services/v1
+│   │   ├── clientService.js
+│   │   └── userService.js
 │   ├── utils/
-│   │   ├── corsOptions.js
 │   │   ├── generateApiKey.js
 │   │   ├── generateJWT.js
 │   │   └── hashPassword.js
@@ -114,10 +117,11 @@ Este proyecto está licenciado bajo la Licencia. Consulta el archivo [LICENSE](L
 
 ## Última Actualización
 
-- **Dia/Mes/Año** : 26-07-2024
+- **Dia/Mes/Año** : 28-07-2024
 
 ### Historial de Actualizaciones
 
+- **28-07-2024**: Actualizar los controladores para que usen los servicios
 - **26-07-2024**: Implementación de CORS para habilitar Cross-Origin Resource Sharing.
 - **26-07-2024**: Despliegue del proyecto en Render.
 - **25-07-2024**: Refactorizacion de Codigo.

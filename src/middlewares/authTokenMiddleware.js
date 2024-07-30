@@ -1,5 +1,5 @@
 // src/middlewares/authTokenMiddleware.js
-import * as userModel from '../models/v1/userModel.prisma.js';
+import { findUserById } from '../models/v1/userModel.prisma.js';
 import { verifyJWT } from '../utils/generateJWT.js'
 
 export const authMiddlewareToken = async (req, res, next) => {
@@ -9,7 +9,7 @@ export const authMiddlewareToken = async (req, res, next) => {
     }
     try {
         const decoded = verifyJWT(token);
-        const user = await userModel.findUserById(decoded.userId);
+        const user = await findUserById(decoded.userId);
         if (!user) {
             return res.status(401).json({ error: 'Token JWT inválido - Usuario no encontrado.' });
         }
