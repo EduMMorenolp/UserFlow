@@ -8,16 +8,16 @@ import regenerateApiKey from './paths/users/regenerateApiKeyUser.js';
 import getAllClients from './paths/clients/getAllClients.js';
 import createClient from './paths/clients/createClient.js';
 import clientById from './paths/clients/clientById.js';
-import UserRegistration from './components/schemas/UserRegistration.js';
-import UserLogin from './components/schemas/UserLogin.js';
-import Client from './components/schemas/Client.js';
-import ClientInput from './components/schemas/ClientInput.js';
-import ClientUpdateInput from './components/schemas/ClientUpdateInput.js';
+import UserRegistration from './components/schemas/user/UserRegistration.js';
+import UserLogin from './components/schemas/user/UserLogin.js';
+import Client from './components/schemas/client/Client.js';
+import ClientInput from './components/schemas/client/ClientInput.js';
+import ClientUpdateInput from './components/schemas/client/ClientUpdateInput.js';
 import bearerAuth from './components/securitySchemes/bearerAuth.js';
 import apiKeyAuth from './components/securitySchemes/apiKeyAuth.js';
 import deleteUser from './paths/users/deleteUser.js';
 import loginClient from './paths/clients/loginClient.js';
-import ClientLogin from './components/schemas/ClientLogin.js';
+import ClientLogin from './components/schemas/client/ClientLogin.js';
 
 const swaggerSpec = {
     openapi: '3.0.0',
