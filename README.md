@@ -45,7 +45,7 @@ La documentación de la API generada con Swagger está disponible en el siguient
 - 📁: Directorios.
 - 📄: Archivos.
 - 📝: Documentacion.
-- 📜: Archivos de esquema o modelos.
+- 🧾: Archivos de esquema o modelos.
 - 🔒: Archivos relacionados con seguridad o autenticación.
 - ⚙️: Archivos de configuración o de ajustes técnicos.
 
@@ -65,8 +65,8 @@ La documentación de la API generada con Swagger está disponible en el siguient
 │   │   ├── 🔒 authApiKeyMiddleware.js
 │   │   └── 🔒 authTokenMiddleware.js
 │   ├── 📁models/📁v1
-│   │   ├── 📄 clientModel.prisma.js
-│   │   └── 📄 userModel.prisma.js
+│   │   ├── 🧾 clientModel.prisma.js
+│   │   └── 🧾 userModel.prisma.js
 │   ├── 📁routes/📁v1
 │   │   ├── 📄 client.Routes.js
 │   │   ├── 📄 home.Routes.js
