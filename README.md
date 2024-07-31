@@ -42,6 +42,7 @@ La documentación de la API generada con Swagger está disponible en el siguient
 ## Estructura del Proyecto 📂
 
 #### Explicación
+
 - 📁: Directorios.
 - 📄: Archivos.
 - 📝: Documentacion.
@@ -85,11 +86,14 @@ La documentación de la API generada con Swagger está disponible en el siguient
 ├── 📁swagger/v1 📝
 │   ├── 📁components/
 │   │   ├── 📁schemas/
-│   │   │   ├── 📄 UserRegistration.js
-│   │   │   ├── 📄 UserLogin.js
-│   │   │   ├── 📄 Client.js
-│   │   │   ├── 📄 ClientInput.js
-│   │   │   └── 📄 ClientUpdateInput.js
+│   │   │   ├── 📁client/
+│   │   │   │   ├── 📄 Client.js
+│   │   │   │   ├── 📄 ClientInput.js
+│   │   │   │   ├── 📄 ClientLogin.js
+│   │   │   │   └── 📄 ClientUpdateInput.js
+│   │   │   └── 📁user/
+│   │   │       ├── 📄 UserRegistration.js
+│   │   │       └── 📄 UserLogin.js
 │   │   └── 📁securitySchemes/
 │   │       ├── 🔒 apiKeyAuth.js
 │   │       └── 🔒 bearerAuth.js
@@ -97,12 +101,13 @@ La documentación de la API generada con Swagger está disponible en el siguient
 │   │   ├── 📁clients/
 │   │   │   ├── 📄 getAllClients.js
 │   │   │   ├── 📄 createClient.js
+│   │   │   ├── 📄 loginClient.js
 │   │   │   └── 📄 clientById.js
 │   │   └── 📁users/
-│   │       ├── 📄 deleteUser.js
-│   │       ├── 📄 register.js
-│   │       ├── 📄 login.js
-│   │       └── 📄 regenerateApiKey.js
+│   │       ├── 📄 deleteUserUser.js
+│   │       ├── 📄 registerUser.js
+│   │       ├── 📄 loginUser.js
+│   │       └── 📄 regenerateApiKeyUser.js
 │   ├── 📄 info.js
 │   ├── 📄 servers.js
 │   ├── 📄 main.js
