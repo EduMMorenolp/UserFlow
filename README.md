@@ -53,7 +53,7 @@ La documentación de la API generada con Swagger está disponible en el siguient
 📁UserFlow/
 ├── 📁prisma/
 │   ├── 📁migrations/
-│   └── ⚙️ schema.prisma
+│   └── 📜 schema.prisma
 ├── 📁src/
 │   ├── 📁controllers/📁v1
 │   │   ├── 📄 clientController.js
