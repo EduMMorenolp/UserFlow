@@ -29,7 +29,7 @@ setupSwaggerV1(app);
 app.use(`/`, homeRoutes)
 // Rutas principales v1
 app.use('/api/v1/users', userRoutes);
-app.use('/userflow/v1/clients', clientRoutes);
+app.use('/api/v1/clients', clientRoutes);
 
 app.listen(PORT, () => {
     console.log('\n==================================================')

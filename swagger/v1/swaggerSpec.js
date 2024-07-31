@@ -24,16 +24,16 @@ const swaggerSpec = {
     info,
     servers,
     paths: {
-        '/api/v1/users/register': register,
-        '/api/v1/users/login': login,
-        '/api/v1/users/regenerate-api-key': regenerateApiKey,
-        '/api/v1/users/deleteUser': deleteUser,
-        '/userflow/v1/clients': {
+        '/users/register': register,
+        '/users/login': login,
+        '/users/regenerate-api-key': regenerateApiKey,
+        '/users/deleteUser': deleteUser,
+        '/clients': {
             ...getAllClients
         },
-        '/userflow/v1/clients/register': createClient,
-        '/userflow/v1/clients/login': loginClient,
-        '/userflow/v1/clients/{id}': clientById
+        '/clients/register': createClient,
+        '/clients/login': loginClient,
+        '/clients/{id}': clientById
     },
     components: {
         schemas: {
