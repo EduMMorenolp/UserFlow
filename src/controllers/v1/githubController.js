@@ -1,4 +1,4 @@
-// src/controllers/v1/authController.js
+// src/controllers/v1/githubController.js
 
 import passport from '../../middlewares/passport.js';
 
