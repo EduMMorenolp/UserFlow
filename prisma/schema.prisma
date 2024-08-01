@@ -8,27 +8,29 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
+  id        String    @id @default(uuid())
+  email     String    @unique
   password  String
+  githubId  String?
   name      String?
   lastName  String?
-  apiKey    String?  @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  apiKey    String?   @unique
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   deleteAt  DateTime?
-  clients   Client[] @relation("AdminClients")
+  clients   Client[]  @relation("AdminClients")
 }
 
 model Client {
-  id        String   @id @default(uuid())
-  email     String   @unique
+  id        String    @id @default(uuid())
+  email     String    @unique
   password  String
+  githubId  String?
   name      String?
   lastName  String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   deleteAt  DateTime?
   adminId   String
-  admin     User     @relation("AdminClients", fields: [adminId], references: [id])
+  admin     User      @relation("AdminClients", fields: [adminId], references: [id])
 }

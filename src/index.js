@@ -3,6 +3,7 @@
 import express from 'express'
 import morgan from 'morgan';
 import dotenv from 'dotenv';
+import passport from 'passport';
 // Swagger
 import setupSwaggerV1 from '../swagger/v1/main.js';
 // Cors
@@ -11,6 +12,7 @@ import setupCors from './database/corsOptions.js';
 import userRoutes from './routes/v1/user.Routes.js';
 import clientRoutes from './routes/v1/client.Routes.js';
 import homeRoutes from './routes/v1/home.Routes.js';
+import githubRoutes from './routes/v1/github.Routes.js';
 
 dotenv.config();
 const app = express()
@@ -23,13 +25,19 @@ app.use(express.urlencoded({ extended: true }));
 // Configuración de CORS
 setupCors(app);
 
+// Configuración de Passport
+app.use(passport.initialize());
+
 // Configura Swagger UI
 setupSwaggerV1(app);
 
+// Ruta Inicio
 app.use(`/`, homeRoutes)
 // Rutas principales v1
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/clients', clientRoutes);
+// Autentificacion Github
+app.use('/api/v1/github', githubRoutes);
 
 app.listen(PORT, () => {
     console.log('\n==================================================')
