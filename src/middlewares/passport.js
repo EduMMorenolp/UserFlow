@@ -12,6 +12,7 @@ passport.use(new GitHubStrategy({
     callbackURL: `${process.env.BASE_URL}/api/v1/github/auth/callback`
 }, async (accessToken, refreshToken, profile, done) => {
     try {
+        console.log(accessToken, refreshToken, profile)
         let user = await prisma.user.findUnique({
             where: { githubId: profile.id },
         });

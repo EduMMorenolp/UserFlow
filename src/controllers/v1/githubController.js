@@ -11,7 +11,8 @@ export const githubAuthCallback = (req, res, next) => {
         }
 
         const { user, token } = result;
-        res.cookie('jwt', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
-        res.redirect('/profile');
+        res.json({ user, token });
+        // res.cookie('jwt', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
+        // res.redirect('/');
     })(req, res, next);
 };
