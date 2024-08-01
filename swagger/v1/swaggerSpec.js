@@ -18,6 +18,8 @@ import apiKeyAuth from './components/securitySchemes/apiKeyAuth.js';
 import deleteUser from './paths/users/deleteUser.js';
 import loginClient from './paths/clients/loginClient.js';
 import ClientLogin from './components/schemas/client/ClientLogin.js';
+import auth from './paths/github/auth.js';
+import authCallback from './paths/github/authCallback.js';
 
 const swaggerSpec = {
     openapi: '3.0.0',
@@ -33,7 +35,9 @@ const swaggerSpec = {
         },
         '/clients/register': createClient,
         '/clients/login': loginClient,
-        '/clients/{id}': clientById
+        '/clients/{id}': clientById,
+        '/github/auth': auth,
+        '/github/auth/callback': authCallback,
     },
     components: {
         schemas: {
@@ -42,11 +46,13 @@ const swaggerSpec = {
             Client,
             ClientInput,
             ClientUpdateInput,
-            ClientLogin
+            ClientLogin,
+            auth,
+            authCallback
         },
         securitySchemes: {
             bearerAuth,
-            apiKeyAuth
+            apiKeyAuth,
         }
     }
 };
