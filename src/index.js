@@ -36,7 +36,7 @@ app.use(`/`, homeRoutes)
 // Rutas principales v1
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/clients', clientRoutes);
-// Autentificacion Github
+// Autentificación con Github
 app.use('/api/v1/github', githubRoutes);
 
 app.listen(PORT, () => {
